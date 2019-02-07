@@ -1,0 +1,65 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Performance[]|\Cake\Collection\CollectionInterface $performances
+ */
+?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New Performance'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Locations'), ['controller' => 'Locations', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Location'), ['controller' => 'Locations', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
+    </ul>
+</nav>
+<div class="performances index large-9 medium-8 columns content">
+    <h3><?= __('Performances') ?></h3>
+    <table cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('provider_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('location_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metric_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('numerator') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('denominator') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('quarter') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('year') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($performances as $performance): ?>
+            <tr>
+                <td><?= $this->Number->format($performance->id) ?></td>
+                <td><?= $performance->has('provider') ? $this->Html->link($performance->provider->id, ['controller' => 'Providers', 'action' => 'view', $performance->provider->id]) : '' ?></td>
+                <td><?= $performance->has('location') ? $this->Html->link($performance->location->id, ['controller' => 'Locations', 'action' => 'view', $performance->location->id]) : '' ?></td>
+                <td><?= $performance->has('metric') ? $this->Html->link($performance->metric->id, ['controller' => 'Metrics', 'action' => 'view', $performance->metric->id]) : '' ?></td>
+                <td><?= $this->Number->format($performance->numerator) ?></td>
+                <td><?= $this->Number->format($performance->denominator) ?></td>
+                <td><?= $this->Number->format($performance->quarter) ?></td>
+                <td><?= h($performance->year) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $performance->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $performance->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $performance->id], ['confirm' => __('Are you sure you want to delete # {0}?', $performance->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first')) ?>
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->last(__('last') . ' >>') ?>
+        </ul>
+        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+    </div>
+</div>
