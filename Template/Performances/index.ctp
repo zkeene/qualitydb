@@ -6,14 +6,16 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Performance'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Locations'), ['controller' => 'Locations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Location'), ['controller' => 'Locations', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('New') ?></li>
+        <li><?= $this->Html->link(__('Performance'), ['action' => 'add']) ?></li>
+        <li class="heading"><?= __('Listings') ?></li>
+        <li><?= $this->Html->link(__('Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Locations'), ['controller' => 'Locations', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
+        <li class="heading"><?= __('Related New') ?></li>
+        <li><?= $this->Html->link(__('Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Location'), ['controller' => 'Locations', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="performances index large-9 medium-8 columns content">
@@ -21,12 +23,10 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('provider_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('location_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('metric_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('numerator') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('denominator') ?></th>
+                <th scope="col"><?= h('Performance') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('quarter') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('year') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -35,12 +35,10 @@
         <tbody>
             <?php foreach ($performances as $performance): ?>
             <tr>
-                <td><?= $this->Number->format($performance->id) ?></td>
                 <td><?= $performance->has('provider') ? $this->Html->link($performance->provider->id, ['controller' => 'Providers', 'action' => 'view', $performance->provider->id]) : '' ?></td>
                 <td><?= $performance->has('location') ? $this->Html->link($performance->location->id, ['controller' => 'Locations', 'action' => 'view', $performance->location->id]) : '' ?></td>
                 <td><?= $performance->has('metric') ? $this->Html->link($performance->metric->id, ['controller' => 'Metrics', 'action' => 'view', $performance->metric->id]) : '' ?></td>
-                <td><?= $this->Number->format($performance->numerator) ?></td>
-                <td><?= $this->Number->format($performance->denominator) ?></td>
+                <td><?= $this->Number->format($performance->numerator).'/'.$this->Number->format($performance->denominator) ?></td>
                 <td><?= $this->Number->format($performance->quarter) ?></td>
                 <td><?= h($performance->year) ?></td>
                 <td class="actions">

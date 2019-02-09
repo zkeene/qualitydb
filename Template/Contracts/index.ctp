@@ -6,14 +6,16 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Contract'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pay Cycles'), ['controller' => 'PayCycles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pay Cycle'), ['controller' => 'PayCycles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('New') ?></li>
+        <li><?= $this->Html->link(__('Contract'), ['action' => 'add']) ?></li>
+        <li class="heading"><?= __('Listings') ?></li>
+        <li><?= $this->Html->link(__('Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Pay Cycles'), ['controller' => 'PayCycles', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li class="heading"><?= __('Related New') ?></li>
+        <li><?= $this->Html->link(__('Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Pay Cycle'), ['controller' => 'PayCycles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="contracts index large-9 medium-8 columns content">
@@ -24,7 +26,7 @@
                 <th scope="col"><?= $this->Paginator->sort('provider_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('total_incentive_amount') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('pay_cycle_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('fte') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('FTE') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('effective_date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('effective_quality_date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('amendment_date') ?></th>
@@ -40,7 +42,7 @@
             <?php foreach ($contracts as $contract): ?>
             <tr>
                 <td><?= $contract->has('provider') ? $this->Html->link($contract->provider->provider_name, ['controller' => 'Providers', 'action' => 'view', $contract->provider->id]) : '' ?></td>
-                <td><?= $this->Number->format($contract->total_incentive_amount) ?></td>
+                <td><?= $this->Number->currency($contract->total_incentive_amount,'USD',['places'=>0]) ?></td>
                 <td><?= $contract->has('pay_cycle') ? $this->Html->link($contract->pay_cycle->pay_cycle, ['controller' => 'PayCycles', 'action' => 'view', $contract->pay_cycle->id]) : '' ?></td>
                 <td><?= $this->Number->format($contract->fte) ?></td>
                 <td><?= $this->Html->link($contract->effective_date, ['action' => 'view', $contract->id]) ?></td>
@@ -48,7 +50,7 @@
                 <td><?= h($contract->amendment_date) ?></td>
                 <td><?= h($contract->default_expire_date) ?></td>
                 <td><?= h($contract->inactive_date) ?></td>
-                <td><?= h($contract->active) ?></td>
+                <td><?= h($contract->active)? 'Active':'Inactive' ?></td>
                 <td><?= h($contract->datetime_stamp) ?></td>
                 <td><?= $contract->has('user') ? $this->Html->link($contract->user->user, ['controller' => 'Users', 'action' => 'view', $contract->user->id]) : '' ?></td>
                 <td class="actions">

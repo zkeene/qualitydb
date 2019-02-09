@@ -38,7 +38,7 @@ class ProvidersController extends AppController
     public function view($id = null)
     {
         $provider = $this->Providers->get($id, [
-            'contain' => ['ServiceLines', 'ProviderTypes', 'Contracts', 'Performances']
+            'contain' => ['ServiceLines', 'ProviderTypes', 'Contracts', 'Performances', 'Contracts.PayCycles', 'Performances.Metrics', 'Performances.Locations']
         ]);
 
         $this->set('provider', $provider);

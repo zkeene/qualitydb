@@ -6,12 +6,14 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Service Line'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Specific Metrics'), ['controller' => 'SpecificMetrics', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Specific Metric'), ['controller' => 'SpecificMetrics', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('New') ?></li>
+        <li><?= $this->Html->link(__('Service Line'), ['action' => 'add']) ?></li>
+        <li class="heading"><?= __('Listings') ?></li>
+        <li><?= $this->Html->link(__('Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Specific Metrics'), ['controller' => 'SpecificMetrics', 'action' => 'index']) ?></li>
+        <li class="heading"><?= __('Related New') ?></li>
+        <li><?= $this->Html->link(__('Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Specific Metric'), ['controller' => 'SpecificMetrics', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="serviceLines index large-9 medium-8 columns content">

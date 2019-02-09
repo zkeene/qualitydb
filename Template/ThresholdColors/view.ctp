@@ -8,11 +8,10 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Threshold Color'), ['action' => 'edit', $thresholdColor->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Threshold Color'), ['action' => 'delete', $thresholdColor->id], ['confirm' => __('Are you sure you want to delete # {0}?', $thresholdColor->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Threshold Colors'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Threshold Color'), ['action' => 'add']) ?> </li>
+        <li class="heading"><?= __('Related Actions') ?></li>
         <li><?= $this->Html->link(__('List Specific Metric Thresholds'), ['controller' => 'SpecificMetricThresholds', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Specific Metric Threshold'), ['controller' => 'SpecificMetricThresholds', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="thresholdColors view large-9 medium-8 columns content">

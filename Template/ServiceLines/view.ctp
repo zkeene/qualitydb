@@ -26,9 +26,9 @@
             <tr>
                 <th scope="col"><?= __('Provider Name') ?></th>
                 <th scope="col"><?= __('Provider Type') ?></th>
-                <th scope="col"><?= __('SER') ?></th>
+                <th scope="col"><?= __('Epic SER') ?></th>
                 <th scope="col"><?= __('NPI') ?></th>
-                <th scope="col"><?= __('Badge Num') ?></th>
+                <th scope="col"><?= __('KHN Badge') ?></th>
                 <th scope="col"><?= __('Provider Status') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -39,7 +39,7 @@
                 <td><?= h($providers->SER) ?></td>
                 <td><?= h($providers->NPI) ?></td>
                 <td><?= h($providers->badge_num) ?></td>
-                <td><?= h($providers->provider_status) ?></td>
+                <td><?= h($providers->provider_status)? 'Active':'Inactive' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Providers', 'action' => 'edit', $providers->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Providers', 'action' => 'delete', $providers->id], ['confirm' => __('Are you sure you want to delete # {0}?', $providers->id)]) ?>
@@ -54,26 +54,19 @@
         <?php if (!empty($serviceLine->specific_metrics)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Service Line Id') ?></th>
-                <th scope="col"><?= __('Metric Id') ?></th>
-                <th scope="col"><?= __('Threshold Direction') ?></th>
-                <th scope="col"><?= __('Outside Threshold Message Id') ?></th>
-                <th scope="col"><?= __('Outside Threshold Color Id') ?></th>
-                <th scope="col"><?= __('Is Gateway Metric') ?></th>
+                <th scope="col"><?= __('Metric') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
+                <th scope="col"><?= __('Threshold Direction') ?></th>
+                <th scope="col"><?= __('Is Gateway Metric') ?></th>
+
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($serviceLine->specific_metrics as $specificMetrics): ?>
             <tr>
-                <td><?= h($specificMetrics->id) ?></td>
-                <td><?= h($specificMetrics->service_line_id) ?></td>
-                <td><?= h($specificMetrics->metric_id) ?></td>
-                <td><?= h($specificMetrics->threshold_direction) ?></td>
-                <td><?= h($specificMetrics->outside_threshold_message_id) ?></td>
-                <td><?= h($specificMetrics->outside_threshold_color_id) ?></td>
-                <td><?= h($specificMetrics->is_gateway_metric) ?></td>
+                <td><?= h($specificMetrics->metric->metric) ?></td>
                 <td><?= h($specificMetrics->year) ?></td>
+                <td><?= h($specificMetrics->threshold_direction)? 'Down':'Up' ?></td>
+                <td><?= h($specificMetrics->is_gateway_metric)? 'Yes':'No' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetrics->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetrics', 'action' => 'edit', $specificMetrics->id]) ?>

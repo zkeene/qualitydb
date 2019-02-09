@@ -8,16 +8,17 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Provider'), ['action' => 'edit', $provider->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Provider'), ['action' => 'delete', $provider->id], ['confirm' => __('Are you sure you want to delete # {0}?', $provider->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Providers'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Provider'), ['action' => 'add']) ?> </li>
+        <li class="heading"><?= __('Listings') ?></li>
         <li><?= $this->Html->link(__('List Service Lines'), ['controller' => 'ServiceLines', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Service Line'), ['controller' => 'ServiceLines', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Provider Types'), ['controller' => 'ProviderTypes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Provider Type'), ['controller' => 'ProviderTypes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Contracts'), ['controller' => 'Contracts', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Contract'), ['controller' => 'Contracts', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Performances'), ['controller' => 'Performances', 'action' => 'index']) ?> </li>
+        <li class="heading"><?= __('Related New') ?></li>
+        <li><?= $this->Html->link(__('New Service Line'), ['controller' => 'ServiceLines', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('New Provider Type'), ['controller' => 'ProviderTypes', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('New Contract'), ['controller' => 'Contracts', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('New Performance'), ['controller' => 'Performances', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
@@ -33,7 +34,7 @@
             <td><?= $provider->has('provider_type') ? $this->Html->link($provider->provider_type->provider_type, ['controller' => 'ProviderTypes', 'action' => 'view', $provider->provider_type->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('SER') ?></th>
+            <th scope="row"><?= __('Epic SER') ?></th>
             <td><?= h($provider->SER) ?></td>
         </tr>
         <tr>
@@ -41,12 +42,12 @@
             <td><?= h($provider->NPI) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Badge Num') ?></th>
+            <th scope="row"><?= __('KHN Badge') ?></th>
             <td><?= h($provider->badge_num) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Provider Status') ?></th>
-            <td><?= $this->Number->format($provider->provider_status) ?></td>
+            <td><?= $this->Number->format($provider->provider_status)? 'Active':'Inactive' ?></td>
         </tr>
     </table>
     <div class="related">
@@ -54,11 +55,9 @@
         <?php if (!empty($provider->contracts)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Provider Id') ?></th>
                 <th scope="col"><?= __('Total Incentive Amount') ?></th>
-                <th scope="col"><?= __('Pay Cycle Id') ?></th>
-                <th scope="col"><?= __('Fte') ?></th>
+                <th scope="col"><?= __('Pay Cycle') ?></th>
+                <th scope="col"><?= __('FTE') ?></th>
                 <th scope="col"><?= __('Effective Date') ?></th>
                 <th scope="col"><?= __('Effective Quality Date') ?></th>
                 <th scope="col"><?= __('Amendment Date') ?></th>
@@ -71,17 +70,15 @@
             </tr>
             <?php foreach ($provider->contracts as $contracts): ?>
             <tr>
-                <td><?= h($contracts->id) ?></td>
-                <td><?= h($contracts->provider_id) ?></td>
-                <td><?= h($contracts->total_incentive_amount) ?></td>
-                <td><?= h($contracts->pay_cycle_id) ?></td>
+                <td><?= h($this->Number->currency($contracts->total_incentive_amount,'USD',['places'=>0])) ?></td>
+                <td><?= h($contracts->pay_cycle->pay_cycle) ?></td>
                 <td><?= h($contracts->fte) ?></td>
                 <td><?= h($contracts->effective_date) ?></td>
                 <td><?= h($contracts->effective_quality_date) ?></td>
                 <td><?= h($contracts->amendment_date) ?></td>
                 <td><?= h($contracts->default_expire_date) ?></td>
                 <td><?= h($contracts->inactive_date) ?></td>
-                <td><?= h($contracts->active) ?></td>
+                <td><?= h($contracts->active)? 'Active':'Inactive' ?></td>
                 <td><?= h($contracts->datetime_stamp) ?></td>
                 <td><?= h($contracts->user_id) ?></td>
                 <td class="actions">
@@ -99,24 +96,18 @@
         <?php if (!empty($provider->performances)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Provider Id') ?></th>
-                <th scope="col"><?= __('Location Id') ?></th>
-                <th scope="col"><?= __('Metric Id') ?></th>
-                <th scope="col"><?= __('Numerator') ?></th>
-                <th scope="col"><?= __('Denominator') ?></th>
+                <th scope="col"><?= __('Location') ?></th>
+                <th scope="col"><?= __('Metric') ?></th>
+                <th scope="col"><?= __('Performance') ?></th>
                 <th scope="col"><?= __('Quarter') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($provider->performances as $performances): ?>
             <tr>
-                <td><?= h($performances->id) ?></td>
-                <td><?= h($performances->provider_id) ?></td>
-                <td><?= h($performances->location_id) ?></td>
-                <td><?= h($performances->metric_id) ?></td>
-                <td><?= h($performances->numerator) ?></td>
-                <td><?= h($performances->denominator) ?></td>
+                <td><?= h($performances->location->location_name) ?></td>
+                <td><?= h($performances->metric->metric) ?></td>
+                <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
                 <td><?= h($performances->quarter) ?></td>
                 <td><?= h($performances->year) ?></td>
                 <td class="actions">

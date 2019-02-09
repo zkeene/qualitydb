@@ -6,10 +6,12 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Contracts'), ['controller' => 'Contracts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Contract'), ['controller' => 'Contracts', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('New') ?></li>
+        <li><?= $this->Html->link(__('User'), ['action' => 'add']) ?></li>
+        <li class="heading"><?= __('Listings') ?></li>
+        <li><?= $this->Html->link(__('Contracts'), ['controller' => 'Contracts', 'action' => 'index']) ?></li>
+        <li class="heading"><?= __('Related New') ?></li>
+        <li><?= $this->Html->link(__('Contract'), ['controller' => 'Contracts', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="users index large-9 medium-8 columns content">

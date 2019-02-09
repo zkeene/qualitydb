@@ -35,7 +35,7 @@ class ServiceLinesController extends AppController
     public function view($id = null)
     {
         $serviceLine = $this->ServiceLines->get($id, [
-            'contain' => ['Providers', 'SpecificMetrics', 'Providers.ProviderTypes']
+            'contain' => ['Providers', 'SpecificMetrics', 'Providers.ProviderTypes', 'SpecificMetrics.Metrics']
         ]);
 
         $this->set('serviceLine', $serviceLine);

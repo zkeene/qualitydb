@@ -20,34 +20,18 @@
     </ul>
 </nav>
 <div class="contracts view large-9 medium-8 columns content">
-    <h3><?= h($contract->id) ?></h3>
+    <h3><?= h($contract->provider->provider_name.' - '.$contract->effective_date) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Provider') ?></th>
-            <td><?= $contract->has('provider') ? $this->Html->link($contract->provider->id, ['controller' => 'Providers', 'action' => 'view', $contract->provider->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Pay Cycle') ?></th>
-            <td><?= $contract->has('pay_cycle') ? $this->Html->link($contract->pay_cycle->id, ['controller' => 'PayCycles', 'action' => 'view', $contract->pay_cycle->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Active') ?></th>
-            <td><?= h($contract->active) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $contract->has('user') ? $this->Html->link($contract->user->id, ['controller' => 'Users', 'action' => 'view', $contract->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($contract->id) ?></td>
+            <td><?= $contract->has('pay_cycle') ? $this->Html->link($contract->pay_cycle->pay_cycle, ['controller' => 'PayCycles', 'action' => 'view', $contract->pay_cycle->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Total Incentive Amount') ?></th>
-            <td><?= $this->Number->format($contract->total_incentive_amount) ?></td>
+            <td><?= $this->Number->currency($contract->total_incentive_amount,'USD',['places'=>0]) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Fte') ?></th>
+            <th scope="row"><?= __('FTE') ?></th>
             <td><?= $this->Number->format($contract->fte) ?></td>
         </tr>
         <tr>
@@ -69,6 +53,14 @@
         <tr>
             <th scope="row"><?= __('Inactive Date') ?></th>
             <td><?= h($contract->inactive_date) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Active') ?></th>
+            <td><?= h($contract->active)? 'Active':'Inactive' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('User') ?></th>
+            <td><?= $contract->has('user') ? $this->Html->link($contract->user->user, ['controller' => 'Users', 'action' => 'view', $contract->user->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Datetime Stamp') ?></th>

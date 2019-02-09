@@ -24,9 +24,9 @@
             <tr>
                 <th scope="col"><?= __('Provider Name') ?></th>
                 <th scope="col"><?= __('Service Line') ?></th>
-                <th scope="col"><?= __('SER') ?></th>
+                <th scope="col"><?= __('Epic SER') ?></th>
                 <th scope="col"><?= __('NPI') ?></th>
-                <th scope="col"><?= __('Badge Num') ?></th>
+                <th scope="col"><?= __('KHN Badge') ?></th>
                 <th scope="col"><?= __('Provider Status') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -37,7 +37,7 @@
                 <td><?= h($providers->SER) ?></td>
                 <td><?= h($providers->NPI) ?></td>
                 <td><?= h($providers->badge_num) ?></td>
-                <td><?= h($providers->provider_status) ?></td>
+                <td><?= h($providers->provider_status)? 'Active':'Inactive' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Providers', 'action' => 'edit', $providers->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Providers', 'action' => 'delete', $providers->id], ['confirm' => __('Are you sure you want to delete # {0}?', $providers->id)]) ?>

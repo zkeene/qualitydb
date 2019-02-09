@@ -6,14 +6,16 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Specific Metric'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Service Lines'), ['controller' => 'ServiceLines', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Service Line'), ['controller' => 'ServiceLines', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Specific Metric Thresholds'), ['controller' => 'SpecificMetricThresholds', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Specific Metric Threshold'), ['controller' => 'SpecificMetricThresholds', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('New') ?></li>
+        <li><?= $this->Html->link(__('Specific Metric'), ['action' => 'add']) ?></li>
+        <li class="heading"><?= __('Listings') ?></li>
+        <li><?= $this->Html->link(__('Service Lines'), ['controller' => 'ServiceLines', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Specific Metric Thresholds'), ['controller' => 'SpecificMetricThresholds', 'action' => 'index']) ?></li>
+        <li class="heading"><?= __('New Related') ?></li>
+        <li><?= $this->Html->link(__('Service Line'), ['controller' => 'ServiceLines', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Specific Metric Threshold'), ['controller' => 'SpecificMetricThresholds', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="specificMetrics index large-9 medium-8 columns content">
@@ -21,24 +23,23 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('service_line_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('metric_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('year') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('threshold_direction') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_gateway_metric') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('year') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($specificMetrics as $specificMetric): ?>
             <tr>
-                <td><?= $this->Number->format($specificMetric->id) ?></td>
                 <td><?= $specificMetric->has('service_line') ? $this->Html->link($specificMetric->service_line->service_line, ['controller' => 'ServiceLines', 'action' => 'view', $specificMetric->service_line->id]) : '' ?></td>
                 <td><?= $specificMetric->has('metric') ? $this->Html->link($specificMetric->metric->metric, ['controller' => 'Metrics', 'action' => 'view', $specificMetric->metric->id]) : '' ?></td>
+                <td><?= h($specificMetric->year) ?></td>
                 <td><?= $specificMetric->threshold_direction ? 'Down':'Up' ?></td>
                 <td><?= $specificMetric->is_gateway_metric ? 'Yes':'No' ?></td>
-                <td><?= h($specificMetric->year) ?></td>
+
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $specificMetric->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $specificMetric->id]) ?>
