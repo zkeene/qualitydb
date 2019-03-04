@@ -17,7 +17,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('location_name') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -25,10 +24,8 @@
         <tbody>
             <?php foreach ($locations as $location): ?>
             <tr>
-                <td><?= $this->Number->format($location->id) ?></td>
-                <td><?= h($location->location_name) ?></td>
+                <td><?= $this->Html->link(h($location->location_name), ['action' => 'view', $location->id]) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $location->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $location->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $location->id], ['confirm' => __('Are you sure you want to delete # {0}?', $location->id)]) ?>
                 </td>
