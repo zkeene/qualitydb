@@ -23,7 +23,7 @@
         <?php
             echo $this->Form->control('service_line_id', ['options' => $serviceLines]);
             echo $this->Form->control('metric_id', ['options' => $metrics]);
-            echo $this->Form->control('threshold_direction');
+            echo $this->Form->control('threshold_direction',['label' => 'Downward Metric']);
             echo $this->Form->control('is_gateway_metric');
             echo $this->Form->control('year');
         ?>
