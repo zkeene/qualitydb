@@ -21,7 +21,11 @@
     <fieldset>
         <legend><?= __('Add Specific Metric Threshold') ?></legend>
         <?php
-            echo $this->Form->control('specific_metric_id', ['options' => $specificMetrics]);
+        $specificMetricsDisplay = array();
+        foreach ($specificMetrics as $specificMetric) {
+            $specificMetricsDisplay[$specificMetric->id] = $specificMetric->service_line->service_line.' - '.$specificMetric->metric->metric.' - '.$specificMetric->year;
+        }
+            echo $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay]);
             echo $this->Form->control('threshold');
             echo $this->Form->control('threshold_incentive_percent');
             echo $this->Form->control('message_id', ['options' => $messages]);
