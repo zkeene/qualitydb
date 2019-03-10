@@ -30,6 +30,14 @@
             <th scope="row"><?= __('Is Gateway Metric') ?></th>
             <td><?= $specificMetric->is_gateway_metric ? __('Yes') : __('No'); ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Is Beta Metric') ?></th>
+            <td><?= $specificMetric->is_beta_metric ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Is Service Line Metric') ?></th>
+            <td><?= $specificMetric->is_service_line_metric ? __('Yes') : __('No'); ?></td>
+        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Specific Metric Thresholds') ?></h4>

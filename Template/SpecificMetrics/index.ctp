@@ -28,6 +28,8 @@
                 <th scope="col"><?= $this->Paginator->sort('year') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('threshold_direction') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_gateway_metric') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_beta_metric') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_service_line_metric') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -39,7 +41,8 @@
                 <td><?= h($specificMetric->year) ?></td>
                 <td><?= $specificMetric->threshold_direction ? 'Down':'Up' ?></td>
                 <td><?= $specificMetric->is_gateway_metric ? 'Yes':'No' ?></td>
-
+                <td><?= $specificMetric->is_beta_metric ? 'Yes':'No' ?></td>
+                <td><?= $specificMetric->is_service_line_metric ? 'Yes':'No' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $specificMetric->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $specificMetric->id]) ?>

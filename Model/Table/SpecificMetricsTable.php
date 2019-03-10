@@ -79,6 +79,16 @@ class SpecificMetricsTable extends Table
             ->requirePresence('year', 'create')
             ->notEmpty('year');
 
+        $validator
+            ->boolean('is_beta_metric')
+            ->requirePresence('is_beta_metric', 'create')
+            ->notEmpty('is_beta_metric');
+
+        $validator
+            ->boolean('is_service_line_metric')
+            ->requirePresence('is_service_line_metric', 'create')
+            ->notEmpty('is_service_line_metric');
+
         return $validator;
     }
 

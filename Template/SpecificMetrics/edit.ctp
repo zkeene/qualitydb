@@ -31,6 +31,8 @@
             echo $this->Form->control('metric_id', ['options' => $metrics]);
             echo $this->Form->control('threshold_direction');
             echo $this->Form->control('is_gateway_metric');
+            echo $this->Form->control('is_beta_metric');
+            echo $this->Form->control('is_service_line_metric');
             echo $this->Form->control('year');
         ?>
     </fieldset>
