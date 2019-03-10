@@ -44,7 +44,7 @@
                 <td><?= h($provider->SER) ?></td>
                 <td><?= h($provider->NPI) ?></td>
                 <td><?= h($provider->badge_num) ?></td>
-                <td><?= $this->Number->format($provider->provider_status) ?></td>
+                <td><?= $this->Number->format($provider->provider_status)? 'Active':'Inactive' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $provider->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $provider->id], ['confirm' => __('Are you sure you want to delete # {0}?', $provider->id)]) ?>
