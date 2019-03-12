@@ -15,8 +15,6 @@
         <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Pay Cycles'), ['controller' => 'PayCycles', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Pay Cycle'), ['controller' => 'PayCycles', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="contracts view large-9 medium-8 columns content">
@@ -60,7 +58,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
-            <td><?= $contract->has('user') ? $this->Html->link($contract->user->user, ['controller' => 'Users', 'action' => 'view', $contract->user->id]) : '' ?></td>
+            <td><?= h($contract->user) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Datetime Stamp') ?></th>

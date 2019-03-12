@@ -18,8 +18,6 @@
         <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Pay Cycles'), ['controller' => 'PayCycles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Pay Cycle'), ['controller' => 'PayCycles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="contracts form large-9 medium-8 columns content">
@@ -38,7 +36,7 @@
             echo $this->Form->control('inactive_date', ['empty' => true]);
             echo $this->Form->control('active');
             echo $this->Form->control('datetime_stamp');
-            echo $this->Form->control('user_id', ['options' => $users]);
+            echo $this->Form->control('user');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

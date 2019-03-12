@@ -18,11 +18,10 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate|null $inactive_date
  * @property bool $active
  * @property \Cake\I18n\FrozenTime $datetime_stamp
- * @property int $user_id
  *
+ * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Provider $provider
  * @property \App\Model\Entity\PayCycle $pay_cycle
- * @property \App\Model\Entity\User $user
  */
 class Contract extends Entity
 {
@@ -48,9 +47,8 @@ class Contract extends Entity
         'inactive_date' => true,
         'active' => true,
         'datetime_stamp' => true,
-        'user_id' => true,
+        'user' => true,
         'provider' => true,
-        'pay_cycle' => true,
-        'user' => true
+        'pay_cycle' => true
     ];
 }

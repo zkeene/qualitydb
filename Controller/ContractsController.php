@@ -21,7 +21,7 @@ class ContractsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Providers', 'PayCycles', 'Users']
+            'contain' => ['Providers', 'PayCycles']
         ];
         $contracts = $this->paginate($this->Contracts);
 
@@ -38,7 +38,7 @@ class ContractsController extends AppController
     public function view($id = null)
     {
         $contract = $this->Contracts->get($id, [
-            'contain' => ['Providers', 'PayCycles', 'Users']
+            'contain' => ['Providers', 'PayCycles']
         ]);
 
         $this->set('contract', $contract);
@@ -63,8 +63,7 @@ class ContractsController extends AppController
         }
         $providers = $this->Contracts->Providers->find('list', ['limit' => 200]);
         $payCycles = $this->Contracts->PayCycles->find('list', ['limit' => 200]);
-        $users = $this->Contracts->Users->find('list', ['limit' => 200]);
-        $this->set(compact('contract', 'providers', 'payCycles', 'users'));
+        $this->set(compact('contract', 'providers', 'payCycles'));
     }
 
     /**
@@ -90,8 +89,7 @@ class ContractsController extends AppController
         }
         $providers = $this->Contracts->Providers->find('list', ['limit' => 200]);
         $payCycles = $this->Contracts->PayCycles->find('list', ['limit' => 200]);
-        $users = $this->Contracts->Users->find('list', ['limit' => 200]);
-        $this->set(compact('contract', 'providers', 'payCycles', 'users'));
+        $this->set(compact('contract', 'providers', 'payCycles'));
     }
 
     /**

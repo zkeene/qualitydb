@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\ProvidersTable|\Cake\ORM\Association\BelongsTo $Providers
  * @property \App\Model\Table\PayCyclesTable|\Cake\ORM\Association\BelongsTo $PayCycles
- * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  *
  * @method \App\Model\Entity\Contract get($primaryKey, $options = [])
  * @method \App\Model\Entity\Contract newEntity($data = null, array $options = [])
@@ -45,10 +44,6 @@ class ContractsTable extends Table
         ]);
         $this->belongsTo('PayCycles', [
             'foreignKey' => 'pay_cycle_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -105,6 +100,12 @@ class ContractsTable extends Table
             ->requirePresence('datetime_stamp', 'create')
             ->notEmpty('datetime_stamp');
 
+        $validator
+            ->scalar('user')
+            ->maxLength('user', 50)
+            ->requirePresence('user', 'create')
+            ->notEmpty('user');
+
         return $validator;
     }
 
@@ -119,7 +120,6 @@ class ContractsTable extends Table
     {
         $rules->add($rules->existsIn(['provider_id'], 'Providers'));
         $rules->add($rules->existsIn(['pay_cycle_id'], 'PayCycles'));
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }

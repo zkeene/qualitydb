@@ -11,11 +11,9 @@
         <li class="heading"><?= __('Listings') ?></li>
         <li><?= $this->Html->link(__('Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Pay Cycles'), ['controller' => 'PayCycles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
         <li class="heading"><?= __('Related New') ?></li>
         <li><?= $this->Html->link(__('Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('Pay Cycle'), ['controller' => 'PayCycles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="contracts index large-9 medium-8 columns content">
@@ -33,8 +31,6 @@
                 <th scope="col"><?= $this->Paginator->sort('default_expire_date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('inactive_date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('active') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('datetime_stamp') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -51,8 +47,6 @@
                 <td><?= h($contract->default_expire_date) ?></td>
                 <td><?= h($contract->inactive_date) ?></td>
                 <td><?= h($contract->active)? 'Active':'Inactive' ?></td>
-                <td><?= h($contract->datetime_stamp) ?></td>
-                <td><?= $contract->has('user') ? $this->Html->link($contract->user->user, ['controller' => 'Users', 'action' => 'view', $contract->user->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $contract->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $contract->id], ['confirm' => __('Are you sure you want to delete # {0}?', $contract->id)]) ?>
