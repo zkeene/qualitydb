@@ -61,7 +61,7 @@ class ContractsController extends AppController
             }
             $this->Flash->error(__('The contract could not be saved. Please, try again.'));
         }
-        $providers = $this->Contracts->Providers->find('list', ['limit' => 200]);
+        $providers = $this->Contracts->Providers->find('list');
         $payCycles = $this->Contracts->PayCycles->find('list', ['limit' => 200]);
         $this->set(compact('contract', 'providers', 'payCycles'));
     }
