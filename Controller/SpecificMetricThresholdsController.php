@@ -21,7 +21,7 @@ class SpecificMetricThresholdsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['SpecificMetrics', 'Messages', 'ThresholdColors']
+            'contain' => ['SpecificMetrics', 'Messages', 'ThresholdColors', 'SpecificMetrics.ServiceLines', 'SpecificMetrics.Metrics']
         ];
         $specificMetricThresholds = $this->paginate($this->SpecificMetricThresholds);
 
@@ -38,7 +38,7 @@ class SpecificMetricThresholdsController extends AppController
     public function view($id = null)
     {
         $specificMetricThreshold = $this->SpecificMetricThresholds->get($id, [
-            'contain' => ['SpecificMetrics', 'Messages', 'ThresholdColors']
+            'contain' => ['SpecificMetrics', 'Messages', 'ThresholdColors', 'SpecificMetrics.ServiceLines', 'SpecificMetrics.Metrics']
         ]);
 
         $this->set('specificMetricThreshold', $specificMetricThreshold);
