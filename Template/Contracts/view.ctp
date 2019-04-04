@@ -57,6 +57,10 @@
             <td><?= h($contract->active)? 'Active':'Inactive' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Comments') ?></th>
+            <td><?= h($contract->comments) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('User') ?></th>
             <td><?= h($contract->user) ?></td>
         </tr>

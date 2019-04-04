@@ -49,6 +49,7 @@ class Contract extends Entity
         'datetime_stamp' => true,
         'user' => true,
         'provider' => true,
-        'pay_cycle' => true
+        'pay_cycle' => true,
+        'comment' => true
     ];
 }
