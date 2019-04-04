@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Provider[]|\Cake\Collection\CollectionInterface $providers
  */
+$this->Html->script('https://code.jquery.com/jquery.min.js',['block'=>true]); //Search
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -22,6 +23,8 @@
 </nav>
 <div class="providers index large-9 medium-8 columns content">
     <h3><?= __('Providers') ?></h3>
+    <?= $this->Form->control('search');?> <!--Search-->
+    <div id="table-content"><!--Search-->
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -63,4 +66,25 @@
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
-</div>
+    </div>
+</div><!--Search-->
+<!--Search-->
+<script>
+    $('document').ready(function () {
+        $('#search').keyup(function(){
+            searchRecords ($(this).val());
+        });
+
+        function searchRecords (keyword){
+            var data = keyword;
+            $.ajax({
+                method: 'get',
+                url: "<?php echo $this->Url->build(['controller'=>'Providers', 'action' => 'Search'])?>",
+                data: {keyword:data},
+                success: function(response){
+                    $('#table-content').html(response);
+                }
+            });
+        };
+    });
+</script>

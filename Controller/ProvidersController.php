@@ -111,4 +111,16 @@ class ProvidersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function search(){
+        $this->request->allowMethod('ajax');
+        $keyword = $this->request->query('keyword');
+        $query = $this->Providers->find('all',[
+            'conditions' => ['provider_name LIKE'=>'%'.$keyword.'%'],
+        ]);
+        $this->paginate = [
+            'contain' => ['ServiceLines', 'ProviderTypes']
+        ];
+        $this->set('providers',$this->paginate($query));
+        $this->set('_serialize',['providers']);
+    }
 }
