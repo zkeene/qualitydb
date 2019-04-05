@@ -16,26 +16,14 @@
     </ul>
 </nav>
 <div class="locations view large-9 medium-8 columns content">
-    <h3><?= h($location->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Location Name') ?></th>
-            <td><?= h($location->location_name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($location->id) ?></td>
-        </tr>
-    </table>
+    <h3><?= h($location->location_name) ?></h3>
     <div class="related">
         <h4><?= __('Related Performances') ?></h4>
         <?php if (!empty($location->performances)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Provider Id') ?></th>
-                <th scope="col"><?= __('Location Id') ?></th>
-                <th scope="col"><?= __('Metric Id') ?></th>
+                <th scope="col"><?= __('Provider') ?></th>
+                <th scope="col"><?= __('Metric') ?></th>
                 <th scope="col"><?= __('Numerator') ?></th>
                 <th scope="col"><?= __('Denominator') ?></th>
                 <th scope="col"><?= __('Quarter') ?></th>
@@ -44,10 +32,8 @@
             </tr>
             <?php foreach ($location->performances as $performances): ?>
             <tr>
-                <td><?= h($performances->id) ?></td>
-                <td><?= h($performances->provider_id) ?></td>
-                <td><?= h($performances->location_id) ?></td>
-                <td><?= h($performances->metric_id) ?></td>
+                <td><?= h($performances->provider->provider_name) ?></td>
+                <td><?= h($performances->metric->metric) ?></td>
                 <td><?= h($performances->numerator) ?></td>
                 <td><?= h($performances->denominator) ?></td>
                 <td><?= h($performances->quarter) ?></td>

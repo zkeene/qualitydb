@@ -105,7 +105,7 @@
             </tr>
             <?php foreach ($provider->performances as $performances): ?>
             <tr>
-                <td><?= h($performances->location->location_name) ?></td>
+                <td><?= $performances->has('location') ? h($performances->location->location_name) : '' ?></td>
                 <td><?= h($performances->metric->metric) ?></td>
                 <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
                 <td><?= h($performances->quarter) ?></td>

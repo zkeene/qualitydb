@@ -7,13 +7,14 @@ use Cake\ORM\Entity;
  * Performance Entity
  *
  * @property int $id
- * @property int $provider_id
- * @property int $location_id
+ * @property int|null $provider_id
+ * @property int|null $location_id
  * @property int $metric_id
  * @property int $numerator
  * @property int $denominator
  * @property int $quarter
  * @property string $year
+ * @property int|null $import_error
  *
  * @property \App\Model\Entity\Provider $provider
  * @property \App\Model\Entity\Location $location
@@ -39,6 +40,7 @@ class Performance extends Entity
         'denominator' => true,
         'quarter' => true,
         'year' => true,
+        'import_error' => true,
         'provider' => true,
         'location' => true,
         'metric' => true

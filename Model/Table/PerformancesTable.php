@@ -40,12 +40,10 @@ class PerformancesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Providers', [
-            'foreignKey' => 'provider_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'provider_id'
         ]);
         $this->belongsTo('Locations', [
-            'foreignKey' => 'location_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'location_id'
         ]);
         $this->belongsTo('Metrics', [
             'foreignKey' => 'metric_id',
@@ -84,6 +82,10 @@ class PerformancesTable extends Table
             ->scalar('year')
             ->requirePresence('year', 'create')
             ->notEmpty('year');
+
+        $validator
+            ->nonNegativeInteger('import_error')
+            ->allowEmpty('import_error');
 
         return $validator;
     }
