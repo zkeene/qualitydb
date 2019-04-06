@@ -30,13 +30,12 @@
             echo $this->Form->control('inactive_date', ['empty' => true]);
             echo $this->Form->control('active');
             echo $this->Form->control('comments');
-            echo $this->Form->control('datetime_stamp', ['disabled' => true]);
             if(isset($_SERVER['REMOTE_USER'])){
                 $username = $_SERVER['REMOTE_USER'];
             } else {
-                $username = '';
+                $username = 'Unknown';
             }
-            echo $this->Form->control('user', ['default'=>$username, 'disabled' =>true]);
+            echo $this->Form->hidden('user', ['value'=>$username]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

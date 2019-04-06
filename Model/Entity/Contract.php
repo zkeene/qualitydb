@@ -17,9 +17,10 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate|null $default_expire_date
  * @property \Cake\I18n\FrozenDate|null $inactive_date
  * @property bool $active
- * @property \Cake\I18n\FrozenTime $datetime_stamp
+ * @property \Cake\I18n\FrozenTime|null $datetime_stamp
+ * @property string $user
+ * @property string|null $comments
  *
- * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Provider $provider
  * @property \App\Model\Entity\PayCycle $pay_cycle
  */
@@ -48,8 +49,8 @@ class Contract extends Entity
         'active' => true,
         'datetime_stamp' => true,
         'user' => true,
+        'comments' => true,
         'provider' => true,
-        'pay_cycle' => true,
-        'comment' => true
+        'pay_cycle' => true
     ];
 }

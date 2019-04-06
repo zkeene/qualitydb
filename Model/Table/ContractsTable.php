@@ -97,14 +97,17 @@ class ContractsTable extends Table
 
         $validator
             ->dateTime('datetime_stamp')
-            ->requirePresence('datetime_stamp', 'create')
-            ->notEmpty('datetime_stamp');
+            ->allowEmpty('datetime_stamp');
 
         $validator
             ->scalar('user')
             ->maxLength('user', 50)
             ->requirePresence('user', 'create')
             ->notEmpty('user');
+
+        $validator
+            ->scalar('comments')
+            ->allowEmpty('comments');
 
         return $validator;
     }
