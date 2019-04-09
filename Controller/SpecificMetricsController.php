@@ -21,7 +21,9 @@ class SpecificMetricsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['ServiceLines', 'Metrics']
+            'contain' => ['ServiceLines', 'Metrics'],
+            'order' => ['ServiceLines.service_line'=>'ASC'],
+            'sortWhitelist' => ['ServiceLines.service_line', 'Metrics.metric', 'year']
         ];
         $specificMetrics = $this->paginate($this->SpecificMetrics);
 

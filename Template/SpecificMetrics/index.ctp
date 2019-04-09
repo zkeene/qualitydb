@@ -23,8 +23,8 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('service_line_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('metric_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('ServiceLines.service_line','Service Line') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Metrics.metric','Metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('year') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('threshold_direction') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_gateway_metric') ?></th>
