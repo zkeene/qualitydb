@@ -66,7 +66,8 @@ class SpecificMetricThresholdsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->nonNegativeInteger('threshold')
+            ->decimal('threshold')
+            ->greaterThanOrEqual('threshold', 0)
             ->requirePresence('threshold', 'create')
             ->notEmpty('threshold');
 

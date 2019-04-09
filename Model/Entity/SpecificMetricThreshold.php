@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $specific_metric_id
- * @property int $threshold
+ * @property float $threshold
  * @property float $threshold_incentive_percent
  * @property int $message_id
  * @property int $threshold_color_id
