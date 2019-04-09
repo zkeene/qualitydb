@@ -58,7 +58,7 @@
                 <th scope="col"><?= __('Year') ?></th>
                 <th scope="col"><?= __('Threshold Direction') ?></th>
                 <th scope="col"><?= __('Is Gateway Metric') ?></th>
-
+                <th scope="col"><?= __('Metric Order') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($serviceLine->specific_metrics as $specificMetrics): ?>
@@ -67,6 +67,7 @@
                 <td><?= h($specificMetrics->year) ?></td>
                 <td><?= h($specificMetrics->threshold_direction)? 'Down':'Up' ?></td>
                 <td><?= h($specificMetrics->is_gateway_metric)? 'Yes':'No' ?></td>
+                <td><?= h($specificMetrics->metric_order) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetrics->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetrics', 'action' => 'edit', $specificMetrics->id]) ?>
