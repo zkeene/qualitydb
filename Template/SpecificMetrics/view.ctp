@@ -38,6 +38,10 @@
             <th scope="row"><?= __('Is Service Line Metric') ?></th>
             <td><?= $specificMetric->is_service_line_metric ? __('Yes') : __('No'); ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Metric Order') ?></th>
+            <td><?= $specificMetric->metric_order ?></td>
+        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Specific Metric Thresholds') ?></h4>

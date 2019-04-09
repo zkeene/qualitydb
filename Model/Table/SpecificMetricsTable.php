@@ -89,6 +89,9 @@ class SpecificMetricsTable extends Table
             ->requirePresence('is_service_line_metric', 'create')
             ->notEmpty('is_service_line_metric');
 
+        $validator
+            ->nonNegativeInteger('metric_order');
+
         return $validator;
     }
 
