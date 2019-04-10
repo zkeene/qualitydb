@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property int|null $provider_id
  * @property int|null $location_id
  * @property int $metric_id
- * @property int $numerator
+ * @property float $numerator
  * @property int|null $denominator
  * @property int $quarter
  * @property string $year

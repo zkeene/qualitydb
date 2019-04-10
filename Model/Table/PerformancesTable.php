@@ -64,7 +64,8 @@ class PerformancesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->nonNegativeInteger('numerator')
+            ->decimal('numerator')
+            ->greaterThanOrEqual('numerator', 0)
             ->requirePresence('numerator', 'create')
             ->notEmpty('numerator');
 
