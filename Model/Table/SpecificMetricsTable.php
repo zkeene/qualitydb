@@ -90,7 +90,8 @@ class SpecificMetricsTable extends Table
             ->notEmpty('is_service_line_metric');
 
         $validator
-            ->nonNegativeInteger('metric_order');
+            ->nonNegativeInteger('metric_order')
+            ->allowEmpty('metric_order');
 
         return $validator;
     }

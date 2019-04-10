@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property string $year
  * @property bool $is_beta_metric
  * @property bool $is_service_line_metric
- * @property int $metric_order
+ * @property int|null $metric_order
  *
  * @property \App\Model\Entity\ServiceLine $service_line
  * @property \App\Model\Entity\Metric $metric
