@@ -21,6 +21,7 @@
         <?php
             echo $this->Form->control('metric');
             echo $this->Form->control('metric_def');
+            echo $this->Form->control('is_calculated_metric');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

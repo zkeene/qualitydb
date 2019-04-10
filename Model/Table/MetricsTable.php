@@ -70,6 +70,11 @@ class MetricsTable extends Table
             ->requirePresence('metric_def', 'create')
             ->notEmpty('metric_def');
 
+            $validator
+            ->boolean('is_calculated_metric')
+            ->requirePresence('is_calculated_metric', 'create')
+            ->notEmpty('is_calculated_metric');
+
         return $validator;
     }
 }

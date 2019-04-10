@@ -61,7 +61,7 @@
                 <td><?= h($specificMetricThresholds->threshold_incentive_percent) ?></td>
                 <td><?= h($specificMetricThresholds->message->message_title) ?></td>
                 <td><?= h($specificMetricThresholds->threshold_color->color) ?></td>
-                <td><?= h($specificMetricThresholds->is_gateway_threshold) ?></td>
+                <td><?= $specificMetricThresholds->is_gateway_threshold ? 'Yes':'No' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetricThresholds', 'action' => 'view', $specificMetricThresholds->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetricThresholds', 'action' => 'edit', $specificMetricThresholds->id]) ?>

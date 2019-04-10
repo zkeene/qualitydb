@@ -70,8 +70,7 @@ class PerformancesTable extends Table
 
         $validator
             ->nonNegativeInteger('denominator')
-            ->requirePresence('denominator', 'create')
-            ->notEmpty('denominator');
+            ->allowEmpty('denominator');
 
         $validator
             ->nonNegativeInteger('quarter')

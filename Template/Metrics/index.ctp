@@ -20,6 +20,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('metric') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_calculated_metric') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
             <?php foreach ($metrics as $metric): ?>
             <tr>
             <td><?= $this->Html->link(__($metric->metric), ['action' => 'view', $metric->id]) ?></td>
+            <td><?= $metric->is_calculated_metric ? 'Yes':'No' ?></td>
                 <td class="actions">  
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $metric->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $metric->id], ['confirm' => __('Are you sure you want to delete # {0}?', $metric->id)]) ?>

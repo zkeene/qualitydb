@@ -19,6 +19,12 @@
 </nav>
 <div class="metrics view large-9 medium-8 columns content">
     <h3><?= h($metric->metric) ?></h3>
+    <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Is Calculated Metric') ?></th>
+            <td><?= $metric->is_calculated_metric ? 'Yes':'No' ?></td>
+        </tr>
+    </table>
     <div class="row">
         <h4><?= __('Metric Definition') ?></h4>
         <?= $this->Text->autoParagraph(h($metric->metric_def)); ?>

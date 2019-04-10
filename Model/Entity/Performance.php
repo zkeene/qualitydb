@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property int|null $location_id
  * @property int $metric_id
  * @property int $numerator
- * @property int $denominator
+ * @property int|null $denominator
  * @property int $quarter
  * @property string $year
  * @property int|null $import_error
