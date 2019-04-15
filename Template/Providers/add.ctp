@@ -29,7 +29,7 @@
             echo $this->Form->control('SER');
             echo $this->Form->control('NPI');
             echo $this->Form->control('badge_num');
-            echo $this->Form->control('provider_status', ['options'=> array(1=>'Active',0=>'Inactive')]);
+            echo $this->Form->control('provider_status', ['options'=> array(1=>'Active',0=>'Inactive'), 'default'=>1]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

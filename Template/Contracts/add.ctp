@@ -28,7 +28,7 @@
             echo $this->Form->control('amendment_date', ['empty' => true]);
             echo $this->Form->control('default_expire_date', ['empty' => true]);
             echo $this->Form->control('inactive_date', ['empty' => true]);
-            echo $this->Form->control('active');
+            echo $this->Form->control('active',['checked' => true]);
             echo $this->Form->control('comments');
             if(isset($_SERVER['REMOTE_USER'])){
                 $username = $_SERVER['REMOTE_USER'];
