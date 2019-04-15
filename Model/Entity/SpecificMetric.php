@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  * @property string $year
  * @property bool $is_beta_metric
  * @property bool $is_service_line_metric
+ * @property bool $is_tbd_metric
  * @property int|null $metric_order
  *
  * @property \App\Model\Entity\ServiceLine $service_line
@@ -40,6 +41,7 @@ class SpecificMetric extends Entity
         'year' => true,
         'is_beta_metric' => true,
         'is_service_line_metric' => true,
+        'is_tbd_metric' => true,
         'service_line' => true,
         'metric' => true,
         'specific_metric_thresholds' => true,

@@ -90,6 +90,11 @@ class SpecificMetricsTable extends Table
             ->notEmpty('is_service_line_metric');
 
         $validator
+            ->boolean('is_tbd_metric')
+            ->requirePresence('is_tbd_metric', 'create')
+            ->notEmpty('is_tbd_metric');
+
+        $validator
             ->nonNegativeInteger('metric_order')
             ->allowEmpty('metric_order');
 

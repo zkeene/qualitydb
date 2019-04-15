@@ -39,6 +39,10 @@
             <td><?= $specificMetric->is_service_line_metric ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Is TBD Metric') ?></th>
+            <td><?= $specificMetric->is_tbd_metric ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Metric Order') ?></th>
             <td><?= $specificMetric->metric_order ?></td>
         </tr>

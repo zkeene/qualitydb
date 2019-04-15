@@ -30,6 +30,7 @@
                 <th scope="col"><?= $this->Paginator->sort('is_gateway_metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_beta_metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_service_line_metric') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_tbd_metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('metric_order') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -44,6 +45,7 @@
                 <td><?= $specificMetric->is_gateway_metric ? 'Yes':'No' ?></td>
                 <td><?= $specificMetric->is_beta_metric ? 'Yes':'No' ?></td>
                 <td><?= $specificMetric->is_service_line_metric ? 'Yes':'No' ?></td>
+                <td><?= $specificMetric->is_tbd_metric ? 'Yes':'No' ?></td>
                 <td><?= h($specificMetric->metric_order) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $specificMetric->id]) ?>
