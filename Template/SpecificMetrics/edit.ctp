@@ -29,13 +29,14 @@
         <?php
             echo $this->Form->control('service_line_id', ['options' => $serviceLines]);
             echo $this->Form->control('metric_id', ['options' => $metrics]);
-            echo $this->Form->control('threshold_direction');
+            echo $this->Form->control('threshold_direction', ['label' => 'Downward Metric']);
             echo $this->Form->control('is_gateway_metric');
             echo $this->Form->control('is_beta_metric');
             echo $this->Form->control('is_service_line_metric');
             echo $this->Form->control('is_tbd_metric');
             echo $this->Form->control('year');
             echo $this->Form->control('metric_order');
+            echo $this->Form->control('weight');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

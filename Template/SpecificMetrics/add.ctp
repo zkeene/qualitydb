@@ -30,6 +30,7 @@
             echo $this->Form->control('is_tbd_metric');
             echo $this->Form->control('year');
             echo $this->Form->control('metric_order');
+            echo $this->Form->control('weight');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

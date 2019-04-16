@@ -46,6 +46,10 @@
             <th scope="row"><?= __('Metric Order') ?></th>
             <td><?= $specificMetric->metric_order ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Weight') ?></th>
+            <td><?= $specificMetric->weight ?></td>
+        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Specific Metric Thresholds') ?></h4>

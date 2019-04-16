@@ -32,6 +32,7 @@
                 <th scope="col"><?= $this->Paginator->sort('is_service_line_metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_tbd_metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('metric_order') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('weight') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -47,6 +48,7 @@
                 <td><?= $specificMetric->is_service_line_metric ? 'Yes':'No' ?></td>
                 <td><?= $specificMetric->is_tbd_metric ? 'Yes':'No' ?></td>
                 <td><?= h($specificMetric->metric_order) ?></td>
+                <td><?= h($specificMetric->weight) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $specificMetric->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $specificMetric->id]) ?>

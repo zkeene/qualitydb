@@ -98,6 +98,11 @@ class SpecificMetricsTable extends Table
             ->nonNegativeInteger('metric_order')
             ->allowEmpty('metric_order');
 
+        $validator
+            ->decimal('weight')
+            ->greaterThanOrEqual('weight', 0)
+            ->allowEmpty('weight');
+
         return $validator;
     }
 
