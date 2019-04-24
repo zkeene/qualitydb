@@ -37,6 +37,7 @@
             echo $this->Form->control('year');
             echo $this->Form->control('metric_order');
             echo $this->Form->control('weight');
+            echo $this->Form->control('round_precision');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -50,6 +50,10 @@
             <th scope="row"><?= __('Weight') ?></th>
             <td><?= $specificMetric->weight ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Rounding Precision') ?></th>
+            <td><?= $specificMetric->round_precision ?></td>
+        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Specific Metric Thresholds') ?></h4>

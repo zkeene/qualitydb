@@ -17,6 +17,7 @@ use Cake\ORM\Entity;
  * @property bool $is_tbd_metric
  * @property int|null $metric_order
  * @property float|null $weight
+ * @property int|null $round_precision
  * @property \App\Model\Entity\ServiceLine $service_line
  * @property \App\Model\Entity\Metric $metric
  * @property \App\Model\Entity\SpecificMetricThreshold[] $specific_metric_thresholds
@@ -46,6 +47,7 @@ class SpecificMetric extends Entity
         'metric' => true,
         'specific_metric_thresholds' => true,
         'metric_order' => true,
-        'weight' => true
+        'weight' => true,
+        'precision' => true
     ];
 }

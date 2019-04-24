@@ -102,6 +102,11 @@ class SpecificMetricsTable extends Table
             ->decimal('weight')
             ->greaterThanOrEqual('weight', 0)
             ->allowEmpty('weight');
+        
+        $validator
+            ->nonNegativeInteger('round_precision')
+            ->greaterThanOrEqual('round_precision', 0)
+            ->allowEmpty('round_precision');
 
         return $validator;
     }
