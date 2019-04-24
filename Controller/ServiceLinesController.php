@@ -20,6 +20,9 @@ class ServiceLinesController extends AppController
      */
     public function index()
     {
+        $this->paginate = array (
+            'limit' => 50
+        );
         $serviceLines = $this->paginate($this->ServiceLines);
 
         $this->set(compact('serviceLines'));
