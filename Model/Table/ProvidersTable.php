@@ -110,4 +110,12 @@ class ProvidersTable extends Table
 
         return $rules;
     }
+
+    public function beforeFind ($event, $query, $options, $primary) 
+    {
+        $order = $query->clause('order');
+        if ($order === null || !count($order)) {
+            $query->order( [$this->alias() . '.provider_name' => 'ASC'] );
+        }
+    }
 }
