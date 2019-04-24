@@ -5,17 +5,8 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('New') ?></li>
-        <li><?= $this->Html->link(__('Performance'), ['action' => 'add']) ?></li>
-        <li class="heading"><?= __('Listings') ?></li>
-        <li><?= $this->Html->link(__('Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Locations'), ['controller' => 'Locations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
-        <li class="heading"><?= __('Related New') ?></li>
-        <li><?= $this->Html->link(__('Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Location'), ['controller' => 'Locations', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Performances']);?>
     </ul>
 </nav>
 <div class="performances index large-9 medium-8 columns content">

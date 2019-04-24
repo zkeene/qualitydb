@@ -5,15 +5,9 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Location'), ['action' => 'edit', $location->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Location'), ['action' => 'delete', $location->id], ['confirm' => __('Are you sure you want to delete # {0}?', $location->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Locations'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Location'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Performances'), ['controller' => 'Performances', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Performance'), ['controller' => 'Performances', 'action' => 'add']) ?> </li>
-    </ul>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Location']);?>
+    </ul>>
 </nav>
 <div class="locations view large-9 medium-8 columns content">
     <h3><?= h($location->location_name) ?></h3>

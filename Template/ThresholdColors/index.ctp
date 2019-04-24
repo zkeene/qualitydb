@@ -6,12 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('New') ?></li>
-        <li><?= $this->Html->link(__('Threshold Color'), ['action' => 'add']) ?></li>
-        <li class="heading"><?= __('Listings') ?></li>
-        <li><?= $this->Html->link(__('Specific Metric Thresholds'), ['controller' => 'SpecificMetricThresholds', 'action' => 'index']) ?></li>
-        <li class="heading"><?= __('New Related') ?></li>
-        <li><?= $this->Html->link(__('Specific Metric Threshold'), ['controller' => 'SpecificMetricThresholds', 'action' => 'add']) ?></li>
+        <?= $this->element('navmenu',['nav_title'=>'Threshold Color']);?>
     </ul>
 </nav>
 <div class="thresholdColors index large-9 medium-8 columns content">

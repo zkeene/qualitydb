@@ -5,11 +5,8 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Provider Types'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Provider Type']);?>
     </ul>
 </nav>
 <div class="providerTypes form large-9 medium-8 columns content">

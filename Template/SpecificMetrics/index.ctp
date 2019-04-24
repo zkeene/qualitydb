@@ -6,16 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('New') ?></li>
-        <li><?= $this->Html->link(__('Specific Metric'), ['action' => 'add']) ?></li>
-        <li class="heading"><?= __('Listings') ?></li>
-        <li><?= $this->Html->link(__('Service Lines'), ['controller' => 'ServiceLines', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Specific Metric Thresholds'), ['controller' => 'SpecificMetricThresholds', 'action' => 'index']) ?></li>
-        <li class="heading"><?= __('New Related') ?></li>
-        <li><?= $this->Html->link(__('Service Line'), ['controller' => 'ServiceLines', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Specific Metric Threshold'), ['controller' => 'SpecificMetricThresholds', 'action' => 'add']) ?></li>
+        <?= $this->element('navmenu',['nav_title'=>'Specific Metric']);?>
     </ul>
 </nav>
 <div class="specificMetrics index large-9 medium-8 columns content">

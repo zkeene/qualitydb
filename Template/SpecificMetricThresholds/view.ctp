@@ -5,18 +5,8 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Specific Metric Threshold'), ['action' => 'edit', $specificMetricThreshold->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Specific Metric Threshold'), ['action' => 'delete', $specificMetricThreshold->id], ['confirm' => __('Are you sure you want to delete # {0}?', $specificMetricThreshold->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Specific Metric Thresholds'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Specific Metric Threshold'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Specific Metrics'), ['controller' => 'SpecificMetrics', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Specific Metric'), ['controller' => 'SpecificMetrics', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Messages'), ['controller' => 'Messages', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Message'), ['controller' => 'Messages', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Threshold Colors'), ['controller' => 'ThresholdColors', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Threshold Color'), ['controller' => 'ThresholdColors', 'action' => 'add']) ?> </li>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Specific Metric Threshold']);?>
     </ul>
 </nav>
 <div class="specificMetricThresholds view large-9 medium-8 columns content">

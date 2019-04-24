@@ -5,11 +5,8 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Message'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Specific Metric Thresholds'), ['controller' => 'SpecificMetricThresholds', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Specific Metric Threshold'), ['controller' => 'SpecificMetricThresholds', 'action' => 'add']) ?></li>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Message']);?>
     </ul>
 </nav>
 <div class="messages index large-9 medium-8 columns content">

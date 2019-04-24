@@ -5,17 +5,8 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('New') ?></li>
-        <li><?= $this->Html->link(__('Specific Metric Threshold'), ['action' => 'add']) ?></li>
-        <li class="heading"><?= __('Listings') ?></li>
-        <li><?= $this->Html->link(__('Specific Metrics'), ['controller' => 'SpecificMetrics', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Messages'), ['controller' => 'Messages', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Threshold Colors'), ['controller' => 'ThresholdColors', 'action' => 'index']) ?></li>
-        <li class="heading"><?= __('Related New') ?></li>
-        <li><?= $this->Html->link(__('Message'), ['controller' => 'Messages', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Specific Metric'), ['controller' => 'SpecificMetrics', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Threshold Color'), ['controller' => 'ThresholdColors', 'action' => 'add']) ?></li>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Specific Metric Threshold']);?>
     </ul>
 </nav>
 <div class="specificMetricThresholds index large-9 medium-8 columns content">

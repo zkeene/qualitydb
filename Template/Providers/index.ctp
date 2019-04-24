@@ -6,19 +6,8 @@
 $this->Html->script('https://code.jquery.com/jquery.min.js',['block'=>true]); //Search
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('New') ?></li>
-        <li><?= $this->Html->link(__('Provider'), ['action' => 'add']) ?></li>
-        <li class="heading"><?= __('Listings') ?></li>
-        <li><?= $this->Html->link(__('Service Lines'), ['controller' => 'ServiceLines', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Provider Types'), ['controller' => 'ProviderTypes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Contracts'), ['controller' => 'Contracts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Performances'), ['controller' => 'Performances', 'action' => 'index']) ?></li>
-        <li class="heading"><?= __('Related New') ?></li>
-        <li><?= $this->Html->link(__('Service Line'), ['controller' => 'ServiceLines', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Provider Type'), ['controller' => 'ProviderTypes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Contract'), ['controller' => 'Contracts', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Performance'), ['controller' => 'Performances', 'action' => 'add']) ?></li>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Provider']);?>
     </ul>
 </nav>
 <div class="providers index large-9 medium-8 columns content">

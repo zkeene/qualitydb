@@ -5,14 +5,9 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Contracts'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Providers'), ['controller' => 'Providers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Provider'), ['controller' => 'Providers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pay Cycles'), ['controller' => 'PayCycles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pay Cycle'), ['controller' => 'PayCycles', 'action' => 'add']) ?></li>
-    </ul>
+<ul class="side-nav">
+        <?= $this->element('navmenu',['nav_title'=>'Contract']);?>
+    </ul>>
 </nav>
 <div class="contracts form large-9 medium-8 columns content">
     <?= $this->Form->create($contract) ?>

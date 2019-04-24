@@ -6,20 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $specificMetric->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $specificMetric->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Specific Metrics'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Service Lines'), ['controller' => 'ServiceLines', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Service Line'), ['controller' => 'ServiceLines', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Metrics'), ['controller' => 'Metrics', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Metric'), ['controller' => 'Metrics', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Specific Metric Thresholds'), ['controller' => 'SpecificMetricThresholds', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Specific Metric Threshold'), ['controller' => 'SpecificMetricThresholds', 'action' => 'add']) ?></li>
+        <?= $this->element('navmenu',['nav_title'=>'Specific Metric']);?>
     </ul>
 </nav>
 <div class="specificMetrics form large-9 medium-8 columns content">
