@@ -16,7 +16,7 @@
         <?php
         $specificMetricsDisplay = array();
         foreach ($specificMetrics as $specificMetric) {
-            $specificMetricsDisplay[$specificMetric->id] = $specificMetric->service_line->service_line.' - '.$specificMetric->metric->metric.' - '.$specificMetric->year;
+            $specificMetricsDisplay[$specificMetric->id] = $specificMetric->specific_metric_name;
         }
         asort($specificMetricsDisplay);
             echo $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay]);

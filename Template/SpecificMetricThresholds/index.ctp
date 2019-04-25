@@ -26,7 +26,7 @@
         <tbody>
             <?php foreach ($specificMetricThresholds as $specificMetricThreshold): ?>
             <tr>
-                <td><?= $specificMetricThreshold->has('specific_metric') ? $this->Html->link($specificMetricThreshold->specific_metric->service_line->service_line.' - '.$specificMetricThreshold->specific_metric->metric->metric.' - '.$specificMetricThreshold->specific_metric->year, ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetricThreshold->specific_metric->id]) : '' ?></td>
+                <td><?= $specificMetricThreshold->has('specific_metric') ? $this->Html->link($specificMetricThreshold->specific_metric->specific_metric_name, ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetricThreshold->specific_metric->id]) : '' ?></td>
                 <td><?= $this->Number->format($specificMetricThreshold->threshold) ?></td>
                 <td><?= $this->Number->format($specificMetricThreshold->threshold_incentive_percent) ?></td>
                 <td><?= h($specificMetricThreshold->message->message_title)?></td>

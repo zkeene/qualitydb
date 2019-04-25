@@ -14,9 +14,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('ServiceLines.service_line','Service Line') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('Metrics.metric','Metric') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('year') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('specific_metric_name','Specific Metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('threshold_direction') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_gateway_metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_beta_metric') ?></th>
@@ -31,9 +29,7 @@
         <tbody>
             <?php foreach ($specificMetrics as $specificMetric): ?>
             <tr>
-                <td><?= $specificMetric->has('service_line') ? $this->Html->link($specificMetric->service_line->service_line, ['controller' => 'ServiceLines', 'action' => 'view', $specificMetric->service_line->id]) : '' ?></td>
-                <td><?= $specificMetric->has('metric') ? $this->Html->link($specificMetric->metric->metric, ['controller' => 'Metrics', 'action' => 'view', $specificMetric->metric->id]) : '' ?></td>
-                <td><?= h($specificMetric->year) ?></td>
+                <td><?= h($specificMetric->specific_metric_name) ?></td>
                 <td><?= $specificMetric->threshold_direction ? 'Down':'Up' ?></td>
                 <td><?= $specificMetric->is_gateway_metric ? 'Yes':'No' ?></td>
                 <td><?= $specificMetric->is_beta_metric ? 'Yes':'No' ?></td>

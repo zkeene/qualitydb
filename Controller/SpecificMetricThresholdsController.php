@@ -88,7 +88,7 @@ class SpecificMetricThresholdsController extends AppController
             }
             $this->Flash->error(__('The specific metric threshold could not be saved. Please, try again.'));
         }
-        $specificMetrics = $this->SpecificMetricThresholds->SpecificMetrics->find('list', ['limit' => 200]);
+        $specificMetrics = $this->SpecificMetricThresholds->SpecificMetrics->find('all', ['limit' => 200])->contain(['ServiceLines','Metrics']);
         $messages = $this->SpecificMetricThresholds->Messages->find('list', ['limit' => 200]);
         $thresholdColors = $this->SpecificMetricThresholds->ThresholdColors->find('list', ['limit' => 200]);
         $this->set(compact('specificMetricThreshold', 'specificMetrics', 'messages', 'thresholdColors'));

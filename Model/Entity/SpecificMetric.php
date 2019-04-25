@@ -50,4 +50,10 @@ class SpecificMetric extends Entity
         'weight' => true,
         'precision' => true
     ];
+
+    protected function _getSpecificMetricName(){
+        return $this->_properties['service_line']['service_line'].' - '.
+        $this->_properties['metric']['metric'].' - '.
+        $this->_properties['year'];
+    }
 }

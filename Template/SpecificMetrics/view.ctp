@@ -10,7 +10,7 @@
     </ul>
 </nav>
 <div class="specificMetrics view large-9 medium-8 columns content">
-    <h3><?= h($specificMetric->service_line->service_line) ?> - <?= h($specificMetric->metric->metric) ?> - <?= h($specificMetric->year) ?></h3>
+    <h3><?= $specificMetric->specific_metric_name?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Threshold Direction') ?></th>

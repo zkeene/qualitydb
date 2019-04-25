@@ -115,7 +115,7 @@ class ProvidersController extends AppController
         $this->request->allowMethod('ajax');
         $keyword = $this->request->query('keyword');
         $query = $this->Providers->find('all',[
-            'conditions' => ['provider_name LIKE'=>'%'.$keyword.'%'],
+            'conditions' => ['provider_name LIKE'=>'%'.$keyword.'%']
         ]);
         $this->paginate = [
             'contain' => ['ServiceLines', 'ProviderTypes']
