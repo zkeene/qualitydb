@@ -61,7 +61,7 @@ class PerformancesController extends AppController
             }
             $this->Flash->error(__('The performance could not be saved. Please, try again.'));
         }
-        $providers = $this->Performances->Providers->find('list', ['limit' => 200]);
+        $providers = $this->Performances->Providers->find('list');
         $locations = $this->Performances->Locations->find('list', ['limit' => 200]);
         $metrics = $this->Performances->Metrics->find('list', ['limit' => 200]);
         $this->set(compact('performance', 'providers', 'locations', 'metrics'));
@@ -88,7 +88,7 @@ class PerformancesController extends AppController
             }
             $this->Flash->error(__('The performance could not be saved. Please, try again.'));
         }
-        $providers = $this->Performances->Providers->find('list', ['limit' => 200]);
+        $providers = $this->Performances->Providers->find('list');
         $locations = $this->Performances->Locations->find('list', ['limit' => 200]);
         $metrics = $this->Performances->Metrics->find('list', ['limit' => 200]);
         $this->set(compact('performance', 'providers', 'locations', 'metrics'));
