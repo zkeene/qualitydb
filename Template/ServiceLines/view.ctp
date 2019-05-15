@@ -12,6 +12,35 @@
 <div class="serviceLines view large-9 medium-8 columns content">
     <h3><?= h($serviceLine->service_line) ?></h3>
     <div class="related">
+        <h4><?= __('Related Specific Metrics') ?></h4>
+        <?php if (!empty($serviceLine->specific_metrics)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th scope="col"><?= __('Metric') ?></th>
+                <th scope="col"><?= __('Year') ?></th>
+                <th scope="col"><?= __('Threshold Direction') ?></th>
+                <th scope="col"><?= __('Is Gateway Metric') ?></th>
+                <th scope="col"><?= __('Metric Order') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($serviceLine->specific_metrics as $specificMetrics): ?>
+            <tr>
+                <td><?= h($specificMetrics->metric->metric) ?></td>
+                <td><?= h($specificMetrics->year) ?></td>
+                <td><?= h($specificMetrics->threshold_direction)? 'Down':'Up' ?></td>
+                <td><?= h($specificMetrics->is_gateway_metric)? 'Yes':'No' ?></td>
+                <td><?= h($specificMetrics->metric_order) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetrics->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetrics', 'action' => 'edit', $specificMetrics->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'SpecificMetrics', 'action' => 'delete', $specificMetrics->id], ['confirm' => __('Are you sure you want to delete # {0}?', $specificMetrics->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related">
         <h4><?= __('Related Providers') ?></h4>
         <?php if (!empty($serviceLine->providers)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -35,35 +64,6 @@
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Providers', 'action' => 'edit', $providers->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Providers', 'action' => 'delete', $providers->id], ['confirm' => __('Are you sure you want to delete # {0}?', $providers->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Specific Metrics') ?></h4>
-        <?php if (!empty($serviceLine->specific_metrics)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Metric') ?></th>
-                <th scope="col"><?= __('Year') ?></th>
-                <th scope="col"><?= __('Threshold Direction') ?></th>
-                <th scope="col"><?= __('Is Gateway Metric') ?></th>
-                <th scope="col"><?= __('Metric Order') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($serviceLine->specific_metrics as $specificMetrics): ?>
-            <tr>
-                <td><?= h($specificMetrics->metric->metric) ?></td>
-                <td><?= h($specificMetrics->year) ?></td>
-                <td><?= h($specificMetrics->threshold_direction)? 'Down':'Up' ?></td>
-                <td><?= h($specificMetrics->is_gateway_metric)? 'Yes':'No' ?></td>
-                <td><?= h($specificMetrics->metric_order) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetrics->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetrics', 'action' => 'edit', $specificMetrics->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'SpecificMetrics', 'action' => 'delete', $specificMetrics->id], ['confirm' => __('Are you sure you want to delete # {0}?', $specificMetrics->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
