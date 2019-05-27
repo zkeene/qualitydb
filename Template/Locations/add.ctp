@@ -13,9 +13,7 @@
     <?= $this->Form->create($location) ?>
     <fieldset>
         <legend><?= __('Add Location') ?></legend>
-        <?php
-            echo $this->Form->control('location_name');
-        ?>
+        <?= $this->Form->control('location_name') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

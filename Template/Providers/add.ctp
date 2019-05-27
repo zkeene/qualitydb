@@ -13,15 +13,23 @@
     <?= $this->Form->create($provider) ?>
     <fieldset>
         <legend><?= __('Add Provider') ?></legend>
-        <?php
-            echo $this->Form->control('provider_name');
-            echo $this->Form->control('service_line_id', ['options' => $serviceLines]);
-            echo $this->Form->control('provider_type_id', ['options' => $providerTypes]);
-            echo $this->Form->control('SER');
-            echo $this->Form->control('NPI');
-            echo $this->Form->control('badge_num');
-            echo $this->Form->control('provider_status', ['options'=> array(1=>'Active',0=>'Inactive'), 'default'=>1]);
-        ?>
+        <table>
+            <tr>
+            <td colspan='2'><?= $this->Form->control('provider_name') ?></td>
+            </tr>
+            <tr>
+            <td><?= $this->Form->control('service_line_id', ['options' => $serviceLines]) ?></td>
+            <td><?= $this->Form->control('provider_type_id', ['options' => $providerTypes]) ?></td>
+            </tr>
+            <tr>
+            <td><?= $this->Form->control('SER', ['label' => 'Epic SER']) ?></td>
+            <td><?= $this->Form->control('NPI') ?></td>
+            </tr>
+            <tr>
+            <td><?= $this->Form->control('badge_num', ['label' => 'KHN Badge']) ?></td>
+            <td><?= $this->Form->control('provider_status', ['options' => array(1=>'Active',0=>'Inactive'), 'label' => 'Status']) ?></td>
+            </tr>
+            </table>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

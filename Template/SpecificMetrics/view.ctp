@@ -17,23 +17,23 @@
             <td><?= $specificMetric->threshold_direction ? __('Down') : __('Up'); ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Is Gateway Metric') ?></th>
+            <th scope="row"><?= __('Gateway Metric') ?></th>
             <td><?= $specificMetric->is_gateway_metric ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Is Beta Metric') ?></th>
+            <th scope="row"><?= __('Beta Metric') ?></th>
             <td><?= $specificMetric->is_beta_metric ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Is Service Line Metric') ?></th>
+            <th scope="row"><?= __('Service Line Metric') ?></th>
             <td><?= $specificMetric->is_service_line_metric ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Is TBD Metric') ?></th>
+            <th scope="row"><?= __('TBD Metric') ?></th>
             <td><?= $specificMetric->is_tbd_metric ? __('Yes') : __('No'); ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Metric Order') ?></th>
+            <th scope="row"><?= __('Order') ?></th>
             <td><?= $specificMetric->metric_order ?></td>
         </tr>
         <tr>
@@ -51,10 +51,10 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Threshold') ?></th>
-                <th scope="col"><?= __('Threshold Incentive Percent') ?></th>
+                <th scope="col"><?= __('Incentive Percent') ?></th>
                 <th scope="col"><?= __('Message') ?></th>
                 <th scope="col"><?= __('Color') ?></th>
-                <th scope="col"><?= __('Is Gateway Threshold') ?></th>
+                <th scope="col"><?= __('Gateway Threshold') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($specificMetric->specific_metric_thresholds as $specificMetricThresholds): ?>

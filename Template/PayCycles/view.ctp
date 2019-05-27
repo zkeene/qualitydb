@@ -17,31 +17,27 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Provider') ?></th>
-                <th scope="col"><?= __('Total Incentive Amount') ?></th>
-                <th scope="col"><?= __('Fte') ?></th>
-                <th scope="col"><?= __('Effective Date') ?></th>
-                <th scope="col"><?= __('Effective Quality Date') ?></th>
-                <th scope="col"><?= __('Amendment Date') ?></th>
-                <th scope="col"><?= __('Default Expire Date') ?></th>
+                <th scope="col"><?= __('Total Incentive') ?></th>
+                <th scope="col"><?= __('FTE') ?></th>
+                <th scope="col"><?= __('Effective') ?></th>
+                <th scope="col"><?= __('Effective Quality') ?></th>
+                <th scope="col"><?= __('Amendment') ?></th>
+                <th scope="col"><?= __('Default Expiration') ?></th>
                 <th scope="col"><?= __('Inactive Date') ?></th>
-                <th scope="col"><?= __('Active') ?></th>
-                <th scope="col"><?= __('Datetime Stamp') ?></th>
-                <th scope="col"><?= __('User') ?></th>
+                <th scope="col"><?= __('Status') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($payCycle->contracts as $contracts): ?>
             <tr>
                 <td><?= h($contracts->provider->provider_name) ?></td>
-                <td><?= h($contracts->total_incentive_amount) ?></td>
+                <td><?= h($this->Number->currency($contracts->total_incentive_amount,'USD',['places'=>0])) ?></td>
                 <td><?= h($contracts->fte) ?></td>
                 <td><?= $this->Html->link($contracts->effective_date, ['controller' => 'Contracts', 'action' => 'view', $contracts->id]) ?></td>
                 <td><?= h($contracts->effective_quality_date) ?></td>
                 <td><?= h($contracts->amendment_date) ?></td>
                 <td><?= h($contracts->default_expire_date) ?></td>
                 <td><?= h($contracts->inactive_date) ?></td>
-                <td><?= h($contracts->active) ?></td>
-                <td><?= h($contracts->datetime_stamp) ?></td>
-                <td><?= h($contracts->user->user) ?></td>
+                <td><?= h($contracts->active)? 'Active':'Inactive' ?></td>
                 <td class="actions">
                     
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Contracts', 'action' => 'edit', $contracts->id]) ?>

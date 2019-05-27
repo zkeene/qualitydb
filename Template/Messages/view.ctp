@@ -20,24 +20,20 @@
         <?php if (!empty($message->specific_metric_thresholds)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Specific Metric Id') ?></th>
+                <th colspan='2' scope="col"><?= __('Specific Metric') ?></th>
                 <th scope="col"><?= __('Threshold') ?></th>
-                <th scope="col"><?= __('Threshold Incentive Percent') ?></th>
-                <th scope="col"><?= __('Message Id') ?></th>
-                <th scope="col"><?= __('Threshold Color Id') ?></th>
-                <th scope="col"><?= __('Is Gateway Threshold') ?></th>
+                <th scope="col"><?= __('Incentive Percent') ?></th>
+                <th scope="col"><?= __('Color') ?></th>
+                <th scope="col"><?= __('Gateway Threshold') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($message->specific_metric_thresholds as $specificMetricThresholds): ?>
             <tr>
-                <td><?= h($specificMetricThresholds->id) ?></td>
-                <td><?= h($specificMetricThresholds->specific_metric_id) ?></td>
+                <td colspan='2'><?= h($specificMetricThresholds->specific_metric->specific_metric_name) ?></td>
                 <td><?= h($specificMetricThresholds->threshold) ?></td>
                 <td><?= h($specificMetricThresholds->threshold_incentive_percent) ?></td>
-                <td><?= h($specificMetricThresholds->message_id) ?></td>
-                <td><?= h($specificMetricThresholds->threshold_color_id) ?></td>
-                <td><?= h($specificMetricThresholds->is_gateway_threshold) ?></td>
+                <td><?= h($specificMetricThresholds->threshold_color->color) ?></td>
+                <td><?= h($specificMetricThresholds->is_gateway_threshold)? 'Yes':'No' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetricThresholds', 'action' => 'view', $specificMetricThresholds->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetricThresholds', 'action' => 'edit', $specificMetricThresholds->id]) ?>

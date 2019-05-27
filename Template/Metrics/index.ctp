@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('metric') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_calculated_metric') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_calculated_metric', 'Calculated Metric') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>

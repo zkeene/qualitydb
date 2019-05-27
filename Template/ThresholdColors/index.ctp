@@ -22,10 +22,9 @@
         <tbody>
             <?php foreach ($thresholdColors as $thresholdColor): ?>
             <tr>
-                <td><?= h($thresholdColor->color) ?></td>
+                <td><?= $this->Html->link(h($thresholdColor->color), ['action' => 'view', $thresholdColor->id]) ?></td>
                 <td><?= h($thresholdColor->color_hex) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $thresholdColor->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $thresholdColor->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $thresholdColor->id], ['confirm' => __('Are you sure you want to delete # {0}?', $thresholdColor->id)]) ?>
                 </td>

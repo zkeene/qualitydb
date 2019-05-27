@@ -18,20 +18,18 @@
             <tr>
                 <th scope="col"><?= __('Provider') ?></th>
                 <th scope="col"><?= __('Metric') ?></th>
-                <th scope="col"><?= __('Numerator') ?></th>
-                <th scope="col"><?= __('Denominator') ?></th>
-                <th scope="col"><?= __('Quarter') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
+                <th scope="col"><?= __('Quarter') ?></th>
+                <th scope="col"><?= __('Performance') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($location->performances as $performances): ?>
             <tr>
                 <td><?= h($performances->provider->provider_name) ?></td>
                 <td><?= h($performances->metric->metric) ?></td>
-                <td><?= h($performances->numerator) ?></td>
-                <td><?= h($performances->denominator) ?></td>
-                <td><?= h($performances->quarter) ?></td>
                 <td><?= h($performances->year) ?></td>
+                <td><?= h($performances->quarter) ?></td>
+                <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Performances', 'action' => 'view', $performances->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Performances', 'action' => 'edit', $performances->id]) ?>

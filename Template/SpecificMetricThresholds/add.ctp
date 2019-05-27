@@ -19,13 +19,20 @@
             $specificMetricsDisplay[$specificMetric->id] = $specificMetric->specific_metric_name;
         }
         asort($specificMetricsDisplay);
-            echo $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay]);
-            echo $this->Form->control('threshold');
-            echo $this->Form->control('threshold_incentive_percent');
-            echo $this->Form->control('message_id', ['options' => $messages]);
-            echo $this->Form->control('threshold_color_id', ['options' => $thresholdColors]);
-            echo $this->Form->control('is_gateway_threshold');
         ?>
+            <table>
+                <tr>
+                    <td colspan='3'><?= $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay]) ?></td>
+                </tr>
+                <tr>
+                    <td><?= $this->Form->control('threshold') ?></td>
+                    <td><?= $this->Form->control('threshold_incentive_percent', ['label' => 'Incentive Percent']) ?></td>
+                    <td><?= $this->Form->control('threshold_color_id', ['options' => $thresholdColors, 'label' => 'Color']) ?></td>
+                <tr>
+                    <td colspan='2'><?= $this->Form->control('message_id', ['options' => $messages]) ?></td>
+                    <td><?= $this->Form->control('is_gateway_threshold', ['label' => 'Gateway Threshold']) ?></td>
+                </tr>
+            </table>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

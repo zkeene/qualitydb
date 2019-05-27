@@ -13,9 +13,7 @@
     <?= $this->Form->create($serviceLine) ?>
     <fieldset>
         <legend><?= __('Edit Service Line') ?></legend>
-        <?php
-            echo $this->Form->control('service_line');
-        ?>
+        <?= $this->Form->control('service_line') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

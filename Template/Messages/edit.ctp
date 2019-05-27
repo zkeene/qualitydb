@@ -13,10 +13,8 @@
     <?= $this->Form->create($message) ?>
     <fieldset>
         <legend><?= __('Edit Message') ?></legend>
-        <?php
-            echo $this->Form->control('message');
-            echo $this->Form->control('message_title');
-        ?>
+        <?= $this->Form->control('message_title') ?>
+        <?= $this->Form->control('message') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

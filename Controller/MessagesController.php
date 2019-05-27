@@ -35,7 +35,9 @@ class MessagesController extends AppController
     public function view($id = null)
     {
         $message = $this->Messages->get($id, [
-            'contain' => ['SpecificMetricThresholds', 'SpecificMetricThresholds.ThresholdColors']
+            'contain' => ['SpecificMetricThresholds', 
+                'SpecificMetricThresholds.ThresholdColors', 'SpecificMetricThresholds.SpecificMetrics', 
+                'SpecificMetricThresholds.SpecificMetrics.Metrics', 'SpecificMetricThresholds.SpecificMetrics.ServiceLines']
         ]);
 
         $this->set('message', $message);

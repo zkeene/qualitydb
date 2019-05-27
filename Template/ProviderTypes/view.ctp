@@ -21,7 +21,7 @@
                 <th scope="col"><?= __('Epic SER') ?></th>
                 <th scope="col"><?= __('NPI') ?></th>
                 <th scope="col"><?= __('KHN Badge') ?></th>
-                <th scope="col"><?= __('Provider Status') ?></th>
+                <th scope="col"><?= __('Status') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($providerType->providers as $providers): ?>

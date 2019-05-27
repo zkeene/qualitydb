@@ -14,25 +14,25 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('specific_metric_id') ?></th>
+                <th colspan='2' scope="col"><?= $this->Paginator->sort('specific_metric_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('threshold') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('threshold_incentive_percent') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('message_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('threshold_color_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_gateway_threshold') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('threshold_incentive_percent', 'Incentive Percent') ?></th>
+                <th colspan='2' scope="col"><?= $this->Paginator->sort('message_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('threshold_color_id', 'Color') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_gateway_threshold', 'Gateway Threshold') ?></th>
+                <th colspan='2' scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($specificMetricThresholds as $specificMetricThreshold): ?>
             <tr>
-                <td><?= $specificMetricThreshold->has('specific_metric') ? $this->Html->link($specificMetricThreshold->specific_metric->specific_metric_name, ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetricThreshold->specific_metric->id]) : '' ?></td>
+                <td colspan='2'><?= $specificMetricThreshold->has('specific_metric') ? $this->Html->link($specificMetricThreshold->specific_metric->specific_metric_name, ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetricThreshold->specific_metric->id]) : '' ?></td>
                 <td><?= $this->Number->format($specificMetricThreshold->threshold) ?></td>
                 <td><?= $this->Number->format($specificMetricThreshold->threshold_incentive_percent) ?></td>
-                <td><?= h($specificMetricThreshold->message->message_title)?></td>
+                <td colspan='2'><?= h($specificMetricThreshold->message->message_title)?></td>
                 <td><?= h($specificMetricThreshold->threshold_color->color)?></td>
                 <td><?= h($specificMetricThreshold->is_gateway_threshold)?'Yes':'No' ?></td>
-                <td class="actions">
+                <td colspan='2' class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $specificMetricThreshold->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $specificMetricThreshold->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $specificMetricThreshold->id], ['confirm' => __('Are you sure you want to delete # {0}?', $specificMetricThreshold->id)]) ?>

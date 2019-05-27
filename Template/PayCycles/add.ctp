@@ -13,9 +13,7 @@
     <?= $this->Form->create($payCycle) ?>
     <fieldset>
         <legend><?= __('Add Pay Cycle') ?></legend>
-        <?php
-            echo $this->Form->control('pay_cycle');
-        ?>
+        <?= $this->Form->control('pay_cycle') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

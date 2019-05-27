@@ -75,7 +75,8 @@ class ProvidersTable extends Table
 
         $validator
             ->requirePresence('NPI', 'create')
-            ->notEmpty('NPI');
+            ->notEmpty('NPI')
+            ->lengthBetween('NPI',[10, 10], 'NPI must be 10 digits');
 
         $validator
             ->nonNegativeInteger('badge_num')

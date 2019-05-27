@@ -13,11 +13,9 @@
     <?= $this->Form->create($metric) ?>
     <fieldset>
         <legend><?= __('Edit Metric') ?></legend>
-        <?php
-            echo $this->Form->control('metric');
-            echo $this->Form->control('metric_def');
-            echo $this->Form->control('is_calculated_metric');
-        ?>
+        <?= $this->Form->control('metric') ?>
+            <?= $this->Form->control('metric_def', ['label' => 'Metric Definition']) ?>
+            <?= $this->Form->control('is_calculated_metric', ['label' => 'Calculated Metric']) ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

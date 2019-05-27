@@ -17,7 +17,7 @@
             <td><?= $contract->has('pay_cycle') ? $this->Html->link($contract->pay_cycle->pay_cycle, ['controller' => 'PayCycles', 'action' => 'view', $contract->pay_cycle->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Total Incentive Amount') ?></th>
+            <th scope="row"><?= __('Total Incentive') ?></th>
             <td><?= $this->Number->currency($contract->total_incentive_amount,'USD',['places'=>0]) ?></td>
         </tr>
         <tr>
@@ -37,7 +37,7 @@
             <td><?= h($contract->amendment_date) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Default Expire Date') ?></th>
+            <th scope="row"><?= __('Default Expiration') ?></th>
             <td><?= h($contract->default_expire_date) ?></td>
         </tr>
         <tr>
@@ -45,7 +45,7 @@
             <td><?= h($contract->inactive_date) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Active') ?></th>
+            <th scope="row"><?= __('Status') ?></th>
             <td><?= h($contract->active)? 'Active':'Inactive' ?></td>
         </tr>
         <tr>

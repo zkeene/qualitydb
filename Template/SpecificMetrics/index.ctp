@@ -14,22 +14,22 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('specific_metric_name','Specific Metric') ?></th>
+                <th colspan="2" scope="col"><?= $this->Paginator->sort('specific_metric_name','Specific Metric') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('threshold_direction') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_gateway_metric') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_beta_metric') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_service_line_metric') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_tbd_metric') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('metric_order') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_gateway_metric', 'Gateway') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_beta_metric', 'Beta') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_service_line_metric','Service Line Metric') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_tbd_metric','TBD') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metric_order', 'Order') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('weight') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('round_precision') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('round_precision', 'Precision') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($specificMetrics as $specificMetric): ?>
             <tr>
-                <td><?= h($specificMetric->specific_metric_name) ?></td>
+                <td colspan="2"><?= $this->Html->link(h($specificMetric->specific_metric_name), ['action' => 'view', $specificMetric->id]) ?></td>
                 <td><?= $specificMetric->threshold_direction ? 'Down':'Up' ?></td>
                 <td><?= $specificMetric->is_gateway_metric ? 'Yes':'No' ?></td>
                 <td><?= $specificMetric->is_beta_metric ? 'Yes':'No' ?></td>
@@ -39,7 +39,6 @@
                 <td><?= h($specificMetric->weight) ?></td>
                 <td><?= h($specificMetric->round_precision) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $specificMetric->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $specificMetric->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $specificMetric->id], ['confirm' => __('Are you sure you want to delete # {0}?', $specificMetric->id)]) ?>
                 </td>

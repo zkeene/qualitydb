@@ -35,7 +35,7 @@ class PayCyclesController extends AppController
     public function view($id = null)
     {
         $payCycle = $this->PayCycles->get($id, [
-            'contain' => ['Contracts', 'Contracts.Providers', 'Contracts.Users']
+            'contain' => ['Contracts', 'Contracts.Providers']
         ]);
 
         $this->set('payCycle', $payCycle);

@@ -17,7 +17,7 @@
             <td><?= $provider->has('service_line') ? $this->Html->link($provider->service_line->service_line, ['controller' => 'ServiceLines', 'action' => 'view', $provider->service_line->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Provider Type') ?></th>
+            <th scope="row"><?= __('Type') ?></th>
             <td><?= $provider->has('provider_type') ? $this->Html->link($provider->provider_type->provider_type, ['controller' => 'ProviderTypes', 'action' => 'view', $provider->provider_type->id]) : '' ?></td>
         </tr>
         <tr>
@@ -33,7 +33,7 @@
             <td><?= h($provider->badge_num) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Provider Status') ?></th>
+            <th scope="row"><?= __('Status') ?></th>
             <td><?= $this->Number->format($provider->provider_status)? 'Active':'Inactive' ?></td>
         </tr>
     </table>
@@ -42,17 +42,15 @@
         <?php if (!empty($provider->contracts)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Total Incentive Amount') ?></th>
+                <th scope="col"><?= __('Total Incentive') ?></th>
                 <th scope="col"><?= __('Pay Cycle') ?></th>
                 <th scope="col"><?= __('FTE') ?></th>
-                <th scope="col"><?= __('Effective Date') ?></th>
-                <th scope="col"><?= __('Effective Quality Date') ?></th>
-                <th scope="col"><?= __('Amendment Date') ?></th>
-                <th scope="col"><?= __('Default Expire Date') ?></th>
+                <th scope="col"><?= __('Effective') ?></th>
+                <th scope="col"><?= __('Effective Quality') ?></th>
+                <th scope="col"><?= __('Amendment') ?></th>
+                <th scope="col"><?= __('Default Expiration') ?></th>
                 <th scope="col"><?= __('Inactive Date') ?></th>
-                <th scope="col"><?= __('Active') ?></th>
-                <th scope="col"><?= __('Datetime Stamp') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
+                <th scope="col"><?= __('Status') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($provider->contracts as $contracts): ?>
@@ -66,8 +64,6 @@
                 <td><?= h($contracts->default_expire_date) ?></td>
                 <td><?= h($contracts->inactive_date) ?></td>
                 <td><?= h($contracts->active)? 'Active':'Inactive' ?></td>
-                <td><?= h($contracts->datetime_stamp) ?></td>
-                <td><?= h($contracts->user_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Contracts', 'action' => 'view', $contracts->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Contracts', 'action' => 'edit', $contracts->id]) ?>
@@ -85,18 +81,18 @@
             <tr>
                 <th scope="col"><?= __('Location') ?></th>
                 <th scope="col"><?= __('Metric') ?></th>
-                <th scope="col"><?= __('Performance') ?></th>
-                <th scope="col"><?= __('Quarter') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
+                <th scope="col"><?= __('Quarter') ?></th>
+                <th scope="col"><?= __('Performance') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($provider->performances as $performances): ?>
             <tr>
                 <td><?= $performances->has('location') ? h($performances->location->location_name) : '' ?></td>
                 <td><?= h($performances->metric->metric) ?></td>
-                <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
-                <td><?= h($performances->quarter) ?></td>
                 <td><?= h($performances->year) ?></td>
+                <td><?= h($performances->quarter) ?></td>
+                <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Performances', 'action' => 'view', $performances->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Performances', 'action' => 'edit', $performances->id]) ?>

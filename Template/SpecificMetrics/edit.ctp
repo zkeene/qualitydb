@@ -13,19 +13,27 @@
     <?= $this->Form->create($specificMetric) ?>
     <fieldset>
         <legend><?= __('Edit Specific Metric') ?></legend>
-        <?php
-            echo $this->Form->control('service_line_id', ['options' => $serviceLines]);
-            echo $this->Form->control('metric_id', ['options' => $metrics]);
-            echo $this->Form->control('threshold_direction', ['label' => 'Downward Metric']);
-            echo $this->Form->control('is_gateway_metric');
-            echo $this->Form->control('is_beta_metric');
-            echo $this->Form->control('is_service_line_metric');
-            echo $this->Form->control('is_tbd_metric');
-            echo $this->Form->control('year');
-            echo $this->Form->control('metric_order');
-            echo $this->Form->control('weight');
-            echo $this->Form->control('round_precision');
-        ?>
+            <table>
+                <tr>
+                    <td><?= $this->Form->control('service_line_id', ['options' => $serviceLines]) ?></td>
+                    <td><?= $this->Form->control('metric_id', ['options' => $metrics]) ?></td>
+                </tr>
+                <tr>
+                    <td><?= $this->Form->control('year') ?></td>
+                    <td><?= $this->Form->control('metric_order', ['label' => 'Order']) ?></td>
+                </tr>
+                <tr>
+                    <td><?= $this->Form->control('weight') ?></td>
+                    <td><?= $this->Form->control('round_precision', ['label' => 'Rounding Precision']) ?></td>
+                </tr>
+                <tr>
+                    <td><?= $this->Form->control('threshold_direction', ['label' => 'Downward Metric']) ?>
+                    <?= $this->Form->control('is_gateway_metric',['label' => 'Gateway Metric']) ?>
+                    <?= $this->Form->control('is_beta_metric', ['label' => 'Beta Metric']) ?></td>
+                    <td><?= $this->Form->control('is_service_line_metric', ['label' => 'Service Line Metric']) ?>
+                    <?= $this->Form->control('is_tbd_metric', ['label' => 'TBD Metric']) ?></td>
+                </tr>
+            </table>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

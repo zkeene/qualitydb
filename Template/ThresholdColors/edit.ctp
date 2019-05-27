@@ -13,10 +13,8 @@
     <?= $this->Form->create($thresholdColor) ?>
     <fieldset>
         <legend><?= __('Edit Threshold Color') ?></legend>
-        <?php
-            echo $this->Form->control('color');
-            echo $this->Form->control('color_hex');
-        ?>
+            <?= $this->Form->control('color') ?>
+            <?= $this->Form->control('color_hex') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

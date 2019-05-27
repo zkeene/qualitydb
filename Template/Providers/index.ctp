@@ -17,13 +17,13 @@ $this->Html->script('https://code.jquery.com/jquery.min.js',['block'=>true]); //
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('provider_name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('provider_name', 'Name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('service_line_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('provider_type_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('SER') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('provider_type_id', 'Type') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('SER', 'Epic SER') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('NPI') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('badge_num') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('provider_status') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('badge_num', 'KHN Badge') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('provider_status', 'Status') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>

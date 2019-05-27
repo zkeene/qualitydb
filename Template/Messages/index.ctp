@@ -21,9 +21,8 @@
         <tbody>
             <?php foreach ($messages as $message): ?>
             <tr>
-                <td><?= h($message->message_title) ?></td>
+                <td><?= $this->Html->link(h($message->message_title), ['action' => 'view', $message->id]) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $message->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $message->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $message->id], ['confirm' => __('Are you sure you want to delete # {0}?', $message->id)]) ?>
                 </td>

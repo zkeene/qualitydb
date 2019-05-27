@@ -16,21 +16,31 @@
         <?php if (!empty($serviceLine->specific_metrics)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Metric') ?></th>
+                <th colspan='2' scope="col"><?= __('Metric') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
                 <th scope="col"><?= __('Threshold Direction') ?></th>
-                <th scope="col"><?= __('Is Gateway Metric') ?></th>
-                <th scope="col"><?= __('Metric Order') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= __('Gateway') ?></th>
+                <th scope="col"><?= __('Beta') ?></th>
+                <th scope="col"><?= __('Service Line Metric') ?></th>
+                <th scope="col"><?= __('TBD') ?></th>
+                <th scope="col"><?= __('Order') ?></th>
+                <th scope="col"><?= __('Weight') ?></th>
+                <th scope="col"><?= __('Precision') ?></th>
+                <th colspan='2' scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($serviceLine->specific_metrics as $specificMetrics): ?>
             <tr>
-                <td><?= h($specificMetrics->metric->metric) ?></td>
+                <td colspan='2'><?= h($specificMetrics->metric->metric) ?></td>
                 <td><?= h($specificMetrics->year) ?></td>
                 <td><?= h($specificMetrics->threshold_direction)? 'Down':'Up' ?></td>
                 <td><?= h($specificMetrics->is_gateway_metric)? 'Yes':'No' ?></td>
+                <td><?= h($specificMetrics->is_beta_metric)? 'Yes':'No' ?></td>
+                <td><?= h($specificMetrics->is_service_line_metric)? 'Yes':'No' ?></td>
+                <td><?= h($specificMetrics->is_tbd_metric)? 'Yes':'No' ?></td>
                 <td><?= h($specificMetrics->metric_order) ?></td>
-                <td class="actions">
+                <td><?= h($specificMetrics->weight) ?></td>
+                <td><?= h($specificMetrics->round_precision) ?></td>
+                <td colspan='2' class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetrics', 'action' => 'view', $specificMetrics->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetrics', 'action' => 'edit', $specificMetrics->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'SpecificMetrics', 'action' => 'delete', $specificMetrics->id], ['confirm' => __('Are you sure you want to delete # {0}?', $specificMetrics->id)]) ?>
@@ -50,7 +60,7 @@
                 <th scope="col"><?= __('Epic SER') ?></th>
                 <th scope="col"><?= __('NPI') ?></th>
                 <th scope="col"><?= __('KHN Badge') ?></th>
-                <th scope="col"><?= __('Provider Status') ?></th>
+                <th scope="col"><?= __('Status') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($serviceLine->providers as $providers): ?>
