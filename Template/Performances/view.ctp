@@ -44,5 +44,9 @@
             <th scope="row"><?= __('Quarter') ?></th>
             <td><?= $this->Number->format($performance->quarter) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Period Performance') ?></th>
+            <td><?= $performance->period_performance? 'Yes':'No' ?></td>
+        </tr>
     </table>
 </div>

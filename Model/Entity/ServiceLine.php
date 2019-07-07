@@ -8,6 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $service_line
+ * @property bool $is_period_based
  *
  * @property \App\Model\Entity\Provider[] $providers
  * @property \App\Model\Entity\SpecificMetric[] $specific_metrics
@@ -27,6 +28,7 @@ class ServiceLine extends Entity
     protected $_accessible = [
         'service_line' => true,
         'providers' => true,
-        'specific_metrics' => true
+        'specific_metrics' => true,
+        'is_period_based' => true
     ];
 }

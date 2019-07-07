@@ -15,6 +15,7 @@ use Cake\ORM\Entity;
  * @property int $quarter
  * @property string $year
  * @property int|null $import_error
+ * @property bool $period_performance
  *
  * @property \App\Model\Entity\Provider $provider
  * @property \App\Model\Entity\Location $location
@@ -43,6 +44,7 @@ class Performance extends Entity
         'import_error' => true,
         'provider' => true,
         'location' => true,
-        'metric' => true
+        'metric' => true,
+        'period_performance' => true
     ];
 }

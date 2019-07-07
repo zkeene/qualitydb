@@ -20,6 +20,7 @@
                 <th scope="col"><?= h('Performance') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('quarter') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('year') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('period_performance') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
                 <td><?= $this->Number->format($performance->numerator).'/'.$this->Number->format($performance->denominator) ?></td>
                 <td><?= $this->Number->format($performance->quarter) ?></td>
                 <td><?= h($performance->year) ?></td>
+                <td><?= $performance->period_performance? 'Yes':'No' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $performance->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $performance->id]) ?>

@@ -14,6 +14,7 @@
     <fieldset>
         <legend><?= __('Edit Service Line') ?></legend>
         <?= $this->Form->control('service_line') ?>
+        <?= $this->Form->control('is_period_based') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

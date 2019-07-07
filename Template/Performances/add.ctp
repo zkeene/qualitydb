@@ -21,6 +21,7 @@
             echo $this->Form->control('denominator');
             echo $this->Form->control('quarter');
             echo $this->Form->control('year');
+            echo $this->Form->control('period_performance');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

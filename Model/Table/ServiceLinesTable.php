@@ -64,6 +64,11 @@ class ServiceLinesTable extends Table
             ->requirePresence('service_line', 'create')
             ->notEmpty('service_line');
 
+        $validator
+        ->boolean('is_period_based')
+        ->requirePresence('is_period_based', 'create')
+        ->notEmpty('is_period_based');
+
         return $validator;
     }
 }

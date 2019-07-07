@@ -15,6 +15,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('service_line') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_period_based') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
             <?php foreach ($serviceLines as $serviceLine): ?>
             <tr>
                 <td><?= $this->Html->link(__($serviceLine->service_line), ['action' => 'view', $serviceLine->id]) ?></td>
+                <td><?= $serviceLine->is_period_based? 'Yes':'No' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $serviceLine->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $serviceLine->id], ['confirm' => __('Are you sure you want to delete # {0}?', $serviceLine->id)]) ?>

@@ -11,6 +11,12 @@
 </nav>
 <div class="serviceLines view large-9 medium-8 columns content">
     <h3><?= h($serviceLine->service_line) ?></h3>
+    <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Period Based') ?></th>
+            <td><?= $serviceLine->is_period_based ? __('Yes') : __('No'); ?></td>
+        </tr>
+    </table>
     <div class="related">
         <h4><?= __('Related Specific Metrics') ?></h4>
         <?php if (!empty($serviceLine->specific_metrics)): ?>

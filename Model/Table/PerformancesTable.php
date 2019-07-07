@@ -87,6 +87,11 @@ class PerformancesTable extends Table
             ->nonNegativeInteger('import_error')
             ->allowEmpty('import_error');
 
+        $validator
+            ->boolean('period_performance')
+            ->requirePresence('period_performance', 'create')
+            ->notEmpty('period_performance');
+
         return $validator;
     }
 
