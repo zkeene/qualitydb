@@ -42,7 +42,7 @@ $cakeDescription = 'KPN Quality Scorecard';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="/scorecard/index.php">Provider Scorecard</a></li>
+                <li><a target="_blank" href="/scorecard/index.php">Scorecards</a></li>
             </ul>
         </div>
     </nav>
