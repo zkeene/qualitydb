@@ -10,6 +10,9 @@ use Cake\ORM\Entity;
  * @property string $metric
  * @property string $metric_def
  * @property bool $is_calculated_metric
+ * @property string $numerator_definition
+ * @property string $denominator_definition
+ * @property string $exclusion_definition
  *
  * @property \App\Model\Entity\Performance[] $performances
  * @property \App\Model\Entity\SpecificMetric[] $specific_metrics
@@ -31,6 +34,9 @@ class Metric extends Entity
         'metric_def' => true,
         'performances' => true,
         'specific_metrics' => true,
-        'is_calculated_metric' => true
+        'is_calculated_metric' => true,
+        'numerator_definition' => true,
+        'denominator_definition' => true,
+        'exclusion_definition' => true
     ];
 }

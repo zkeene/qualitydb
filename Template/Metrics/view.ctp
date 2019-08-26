@@ -21,6 +21,18 @@
         <h4><?= __('Metric Definition') ?></h4>
         <?= $this->Text->autoParagraph(h($metric->metric_def)); ?>
     </div>
+    <div class="row">
+        <h4><?= __('Numerator Definition') ?></h4>
+        <?= $this->Text->autoParagraph(h($metric->numerator_definition)); ?>
+    </div>
+    <div class="row">
+        <h4><?= __('Denominator Definition') ?></h4>
+        <?= $this->Text->autoParagraph(h($metric->denominator_definition)); ?>
+    </div>
+    <div class="row">
+        <h4><?= __('Exclusion/Exceptions Definition') ?></h4>
+        <?= $this->Text->autoParagraph(h($metric->exclusion_definition)); ?>
+    </div>
     <div class="related">
         <h4><?= __('Related Specific Metrics') ?></h4>
         <?php if (!empty($metric->specific_metrics)): ?>
