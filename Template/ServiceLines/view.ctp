@@ -23,6 +23,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th colspan='2' scope="col"><?= __('Metric') ?></th>
+                <th scope="col"><?= __('Edit') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
                 <th scope="col"><?= __('Threshold Direction') ?></th>
                 <th scope="col"><?= __('Gateway') ?></th>
@@ -37,6 +38,7 @@
             <?php foreach ($serviceLine->specific_metrics as $specificMetrics): ?>
             <tr>
                 <td colspan='2'><?= h($specificMetrics->metric->metric) ?></td>
+                <td><?= $this->Html->link(__('Edit'), ['controller' => 'Metrics', 'action' => 'edit', $specificMetrics->metric->id]) ?></td>
                 <td><?= h($specificMetrics->year) ?></td>
                 <td><?= h($specificMetrics->threshold_direction)? 'Down':'Up' ?></td>
                 <td><?= h($specificMetrics->is_gateway_metric)? 'Yes':'No' ?></td>
