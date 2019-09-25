@@ -46,6 +46,13 @@ class ContractsTable extends Table
             'foreignKey' => 'pay_cycle_id',
             'joinType' => 'INNER'
         ]);
+        $this->addBehavior('Timestamp',[
+            'events'=> [
+                'Model.beforeSave' => [
+                    'datetime_stamp' => 'always'
+                ]
+            ]
+        ]);
     }
 
     /**
