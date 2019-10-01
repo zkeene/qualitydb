@@ -43,7 +43,7 @@ class ProvidersController extends AppController
                 'ProviderTypes', 
                 'Contracts', 
                 'Performances' => [
-                    'sort' => ['Performances.year' => 'DESC','Performances.quarter'=>'DESC']
+                    'sort' => ['Performances.year' => 'DESC','Performances.quarter'=>'DESC', 'Metrics.metric'=>'ASC']
                 ],
                 'Contracts.PayCycles', 
                 'Performances.Metrics', 
