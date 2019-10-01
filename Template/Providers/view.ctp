@@ -80,7 +80,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Location') ?></th>
-                <th scope="col"><?= __('Metric') ?></th>
+                <th scope="col" colspan=3><?= __('Metric') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
                 <th scope="col"><?= __('Quarter') ?></th>
                 <th scope="col"><?= __('Performance') ?></th>
@@ -89,7 +89,7 @@
             <?php foreach ($provider->performances as $performances): ?>
             <tr>
                 <td><?= $performances->has('location') ? h($performances->location->location_name) : '' ?></td>
-                <td><?= h($performances->metric->metric) ?></td>
+                <td colspan=3><?= h($performances->metric->metric) ?></td>
                 <td><?= h($performances->year) ?></td>
                 <td><?= h($performances->quarter) ?></td>
                 <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
