@@ -24,7 +24,7 @@ use Cake\ORM\Entity;
  */
 class SpecificMetric extends Entity
 {
-
+    protected $_virtual = ['specific_metric_name'];
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
