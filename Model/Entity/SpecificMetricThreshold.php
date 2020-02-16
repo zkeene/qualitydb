@@ -39,6 +39,7 @@ class SpecificMetricThreshold extends Entity
         'is_gateway_threshold' => true,
         'specific_metric' => true,
         'message' => true,
-        'threshold_color' => true
+        'threshold_color' => true,
+        'quarter' => true
     ];
 }

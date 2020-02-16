@@ -36,5 +36,9 @@
             <th scope="row"><?= __('Gateway Threshold') ?></th>
             <td><?= h($specificMetricThreshold->is_gateway_threshold? 'Yes':'No') ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Quarter') ?></th>
+            <td><?= h($specificMetricThreshold->quarter) ?></td>
+        </tr>
     </table>
 </div>

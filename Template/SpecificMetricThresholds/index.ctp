@@ -20,6 +20,7 @@
                 <th colspan='2' scope="col"><?= $this->Paginator->sort('message_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('threshold_color_id', 'Color') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_gateway_threshold', 'Gateway Threshold') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('quarter') ?></th>
                 <th colspan='2' scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
                 <td colspan='2'><?= h($specificMetricThreshold->message->message_title)?></td>
                 <td><?= h($specificMetricThreshold->threshold_color->color)?></td>
                 <td><?= h($specificMetricThreshold->is_gateway_threshold)?'Yes':'No' ?></td>
+                <td><?= h($specificMetricThreshold->quarter)?></td>
                 <td colspan='2' class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $specificMetricThreshold->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $specificMetricThreshold->id]) ?>

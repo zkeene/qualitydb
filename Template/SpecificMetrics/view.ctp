@@ -55,6 +55,7 @@
                 <th scope="col"><?= __('Message') ?></th>
                 <th scope="col"><?= __('Color') ?></th>
                 <th scope="col"><?= __('Gateway Threshold') ?></th>
+                <th scope="col"><?= __('Quarter') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($specificMetric->specific_metric_thresholds as $specificMetricThresholds): ?>
@@ -64,6 +65,7 @@
                 <td><?= h($specificMetricThresholds->message->message_title) ?></td>
                 <td><?= h($specificMetricThresholds->threshold_color->color) ?></td>
                 <td><?= $specificMetricThresholds->is_gateway_threshold ? 'Yes':'No' ?></td>
+                <td><?= h($specificMetricThresholds->quarter) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'SpecificMetricThresholds', 'action' => 'view', $specificMetricThresholds->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'SpecificMetricThresholds', 'action' => 'edit', $specificMetricThresholds->id]) ?>

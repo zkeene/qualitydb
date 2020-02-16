@@ -22,14 +22,15 @@
         ?>
             <table>
                 <tr>
-                    <td colspan='3'><?= $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay]) ?></td>
+                    <td colspan='4'><?= $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay]) ?></td>
                 </tr>
                 <tr>
                     <td><?= $this->Form->control('threshold') ?></td>
                     <td><?= $this->Form->control('threshold_incentive_percent', ['label' => 'Incentive Percent']) ?></td>
                     <td><?= $this->Form->control('threshold_color_id', ['options' => $thresholdColors, 'label' => 'Color']) ?></td>
+                    <td><?= $this->Form->control('quarter') ?></td>
                 <tr>
-                    <td colspan='2'><?= $this->Form->control('message_id', ['options' => $messages]) ?></td>
+                    <td colspan='3'><?= $this->Form->control('message_id', ['options' => $messages]) ?></td>
                     <td><?= $this->Form->control('is_gateway_threshold', ['label' => 'Gateway Threshold']) ?></td>
                 </tr>
             </table>
