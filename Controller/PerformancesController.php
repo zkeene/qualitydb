@@ -113,4 +113,27 @@ class PerformancesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+        /**
+     * Upload method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function upload()
+    {
+        $performance = $this->Performances->newEntity();
+        if ($this->request->is('post')) {
+            $performance = $this->Performances->newEntities($performance, $this->request->getData());
+            if ($this->Performances->saveMany($performance)) { //saveMany function needed but rest of code is not updated
+                $this->Flash->success(__('The performance has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The performance could not be saved. Please, try again.'));
+        }
+        $providers = $this->Performances->Providers->find('list');
+        $metrics = $this->Performances->Metrics->find('list', ['limit' => 200]);
+        $provider_id_types = [1=>'SER',2=>'NPI'];
+        $this->set(compact('performance', 'providers', 'metrics', 'provider_id_types'));
+    }
 }

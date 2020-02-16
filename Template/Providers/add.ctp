@@ -15,21 +15,21 @@
         <legend><?= __('Add Provider') ?></legend>
         <table>
             <tr>
-            <td colspan='2'><?= $this->Form->control('provider_name') ?></td>
+                <td colspan='2'><?= $this->Form->control('provider_name') ?></td>
             </tr>
             <tr>
-            <td><?= $this->Form->control('service_line_id', ['options' => $serviceLines]) ?></td>
-            <td><?= $this->Form->control('provider_type_id', ['options' => $providerTypes]) ?></td>
+                <td><?= $this->Form->control('service_line_id', ['options' => $serviceLines]) ?></td>
+                <td><?= $this->Form->control('provider_type_id', ['options' => $providerTypes]) ?></td>
             </tr>
             <tr>
-            <td><?= $this->Form->control('SER', ['label' => 'Epic SER']) ?></td>
-            <td><?= $this->Form->control('NPI') ?></td>
+                <td><?= $this->Form->control('SER', ['label' => 'Epic SER']) ?></td>
+                <td><?= $this->Form->control('NPI') ?></td>
             </tr>
             <tr>
-            <td><?= $this->Form->control('badge_num', ['label' => 'KHN Badge']) ?></td>
-            <td><?= $this->Form->control('provider_status', ['options' => array(1=>'Active',0=>'Inactive'), 'label' => 'Status']) ?></td>
+                <td><?= $this->Form->control('badge_num', ['label' => 'KHN Badge']) ?></td>
+                <td><?= $this->Form->control('provider_status', ['options' => array(1=>'Active',0=>'Inactive'), 'label' => 'Status']) ?></td>
             </tr>
-            </table>
+        </table>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
