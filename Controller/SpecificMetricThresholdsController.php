@@ -83,8 +83,7 @@ class SpecificMetricThresholdsController extends AppController
             $specificMetricThreshold = $this->SpecificMetricThresholds->patchEntity($specificMetricThreshold, $this->request->getData());
             if ($this->SpecificMetricThresholds->save($specificMetricThreshold)) {
                 $this->Flash->success(__('The specific metric threshold has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'SpecificMetrics', 'action'=>'view', $specificMetricThreshold->specific_metric_id]);
             }
             $this->Flash->error(__('The specific metric threshold could not be saved. Please, try again.'));
         }
