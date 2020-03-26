@@ -14,18 +14,13 @@ class PerformancesController extends AppController
 {
 
     /**
-     * Index method
+     * Index method redirects to Provider Index
      *
      * @return \Cake\Http\Response|void
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Providers', 'Locations', 'Metrics']
-        ];
-        $performances = $this->paginate($this->Performances);
-
-        $this->set(compact('performances'));
+        $this->redirect(['controller'=>'Providers', 'action'=>'index']);
     }
 
     /**

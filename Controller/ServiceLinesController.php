@@ -21,7 +21,8 @@ class ServiceLinesController extends AppController
     public function index()
     {
         $this->paginate = array (
-            'limit' => 50
+            'limit' => 50,
+            'order' => ['ServiceLines.service_line'=>'ASC']
         );
         $serviceLines = $this->paginate($this->ServiceLines);
 

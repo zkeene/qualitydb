@@ -18,7 +18,8 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Specific Metrics') ?></h4>
+        <h4><?= __('Related Specific Metrics') ?>
+        <div class="right"><?= $this->Html->link('New Specific Metric',['controller'=>'SpecificMetrics', 'action'=>'add'],['class'=>'button'])?></div></h4>
         <?php if (!empty($serviceLine->specific_metrics)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

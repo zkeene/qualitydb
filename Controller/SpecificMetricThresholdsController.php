@@ -14,18 +14,13 @@ class SpecificMetricThresholdsController extends AppController
 {
 
     /**
-     * Index method
+     * Index method redirect to Service Line index
      *
      * @return \Cake\Http\Response|void
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['SpecificMetrics', 'Messages', 'ThresholdColors', 'SpecificMetrics.ServiceLines', 'SpecificMetrics.Metrics']
-        ];
-        $specificMetricThresholds = $this->paginate($this->SpecificMetricThresholds);
-
-        $this->set(compact('specificMetricThresholds'));
+        $this->redirect(['controller'=>'ServiceLines', 'action'=>'index']);
     }
 
     /**
@@ -57,7 +52,7 @@ class SpecificMetricThresholdsController extends AppController
             if ($this->SpecificMetricThresholds->save($specificMetricThreshold)) {
                 $this->Flash->success(__('The specific metric threshold has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'SpecificMetrics', 'action'=>'view', $specificMetricThreshold->specific_metric_id]);
             }
             $this->Flash->error(__('The specific metric threshold could not be saved. Please, try again.'));
         }

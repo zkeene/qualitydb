@@ -20,12 +20,7 @@ class SpecificMetricsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['ServiceLines', 'Metrics'],
-        ];
-        $specificMetrics = $this->paginate($this->SpecificMetrics);
-
-        $this->set(compact('specificMetrics'));
+        $this->redirect(['controller'=>'ServiceLines', 'action'=>'index']);
     }
 
     /**
