@@ -20,6 +20,9 @@ class ThresholdColorsController extends AppController
      */
     public function index()
     {
+        $this->paginate = array(
+            'order' => ['ThresholdColors.color'=>'ASC']
+        );
         $thresholdColors = $this->paginate($this->ThresholdColors);
 
         $this->set(compact('thresholdColors'));

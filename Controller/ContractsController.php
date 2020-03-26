@@ -20,12 +20,7 @@ class ContractsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Providers', 'PayCycles']
-        ];
-        $contracts = $this->paginate($this->Contracts);
-
-        $this->set(compact('contracts'));
+        $this->redirect(['controller'=>'Providers', 'action'=>'index']);
     }
 
     /**

@@ -71,8 +71,8 @@ class ProvidersController extends AppController
             }
             $this->Flash->error(__('The provider could not be saved. Please, try again.'));
         }
-        $serviceLines = $this->Providers->ServiceLines->find('list', ['limit' => 200]);
-        $providerTypes = $this->Providers->ProviderTypes->find('list', ['limit' => 200]);
+        $serviceLines = $this->Providers->ServiceLines->find('list', ['limit' => 200, 'order'=>['ServiceLines.service_line'=>'ASC']]);
+        $providerTypes = $this->Providers->ProviderTypes->find('list', ['limit' => 200,'order'=>['ProviderTypes.provider_type'=>'ASC']]);
         $this->set(compact('provider', 'serviceLines', 'providerTypes'));
     }
 
@@ -97,8 +97,8 @@ class ProvidersController extends AppController
             }
             $this->Flash->error(__('The provider could not be saved. Please, try again.'));
         }
-        $serviceLines = $this->Providers->ServiceLines->find('list', ['limit' => 200]);
-        $providerTypes = $this->Providers->ProviderTypes->find('list', ['limit' => 200]);
+        $serviceLines = $this->Providers->ServiceLines->find('list', ['limit' => 200, 'order'=>['ServiceLines.service_line'=>'ASC']]);
+        $providerTypes = $this->Providers->ProviderTypes->find('list', ['limit' => 200,'order'=>['ProviderTypes.provider_type'=>'ASC']]);
         $this->set(compact('provider', 'serviceLines', 'providerTypes'));
     }
 

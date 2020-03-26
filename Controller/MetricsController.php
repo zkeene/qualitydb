@@ -20,6 +20,9 @@ class MetricsController extends AppController
      */
     public function index()
     {
+        $this->paginate = array (
+            'order' => ['Metrics.metric'=>'ASC']
+        );
         $metrics = $this->paginate($this->Metrics);
 
         $this->set(compact('metrics'));
