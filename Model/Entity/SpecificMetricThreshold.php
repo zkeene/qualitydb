@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property int $message_id
  * @property int $threshold_color_id
  * @property bool $is_gateway_threshold
+ * @property int $quarter
  *
  * @property \App\Model\Entity\SpecificMetric $specific_metric
  * @property \App\Model\Entity\Message $message

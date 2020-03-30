@@ -33,7 +33,7 @@ class SpecificMetricsController extends AppController
     public function view($id = null)
     {
         $specificMetric = $this->SpecificMetrics->get($id, [
-            'contain' => ['ServiceLines', 'Metrics', 'SpecificMetricThresholds', 'SpecificMetricThresholds.Messages', 'SpecificMetricThresholds.ThresholdColors']
+            'contain' => ['ServiceLines', 'Metrics', 'SpecificMetricThresholds'=>['sort'=>['SpecificMetricThresholds.quarter'=>'ASC','SpecificMetricThresholds.threshold'=>'ASC']], 'SpecificMetricThresholds.Messages', 'SpecificMetricThresholds.ThresholdColors']
         ]);
 
         $this->set('specificMetric', $specificMetric);
