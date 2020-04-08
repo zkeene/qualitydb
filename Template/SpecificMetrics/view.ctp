@@ -47,7 +47,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Specific Metric Thresholds') ?>
-        <div class="right"><?= $this->Html->link('New Threshold',['controller'=>'SpecificMetricThresholds', 'action'=>'add'],['class'=>'button'])?></div></h4>
+        <div class="right"><?= $this->Html->link('New Threshold',['controller'=>'SpecificMetricThresholds', 'action'=>'add',$specificMetric->id],['class'=>'button'])?></div></h4>
         <?php if (!empty($specificMetric->specific_metric_thresholds)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

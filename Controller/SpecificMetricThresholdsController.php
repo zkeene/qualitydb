@@ -44,7 +44,7 @@ class SpecificMetricThresholdsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($specific_metric_id=0)
     {
         $specificMetricThreshold = $this->SpecificMetricThresholds->newEntity();
         if ($this->request->is('post')) {
@@ -59,7 +59,7 @@ class SpecificMetricThresholdsController extends AppController
         $specificMetrics = $this->SpecificMetricThresholds->SpecificMetrics->find('all')->contain(['ServiceLines','Metrics']);
         $messages = $this->SpecificMetricThresholds->Messages->find('list', ['limit' => 200]);
         $thresholdColors = $this->SpecificMetricThresholds->ThresholdColors->find('list', ['limit' => 200]);
-        $this->set(compact('specificMetricThreshold', 'specificMetrics', 'messages', 'thresholdColors'));
+        $this->set(compact('specificMetricThreshold', 'specificMetrics', 'messages', 'thresholdColors', 'specific_metric_id'));
     }
 
     /**
@@ -105,6 +105,6 @@ class SpecificMetricThresholdsController extends AppController
             $this->Flash->error(__('The specific metric threshold could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller'=>'SpecificMetrics', 'action'=>'view', $specificMetricThreshold->specific_metric_id]);
     }
 }

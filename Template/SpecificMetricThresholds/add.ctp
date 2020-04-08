@@ -22,7 +22,7 @@
         ?>
             <table>
                 <tr>
-                    <td colspan='4'><?= $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay]) ?></td>
+                    <td colspan='4'><?= $this->Form->control('specific_metric_id', ['options' => $specificMetricsDisplay,'default' => $specific_metric_id]) ?></td>
                 </tr>
                 <tr>
                     <td><?= $this->Form->control('threshold') ?></td>

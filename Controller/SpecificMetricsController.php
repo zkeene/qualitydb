@@ -44,7 +44,7 @@ class SpecificMetricsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($service_line_id=0)
     {
         $specificMetric = $this->SpecificMetrics->newEntity();
         if ($this->request->is('post')) {
@@ -58,7 +58,7 @@ class SpecificMetricsController extends AppController
         }
         $serviceLines = $this->SpecificMetrics->ServiceLines->find('list', ['limit' => 200]);
         $metrics = $this->SpecificMetrics->Metrics->find('list', ['limit' => 200]);
-        $this->set(compact('specificMetric', 'serviceLines', 'metrics'));
+        $this->set(compact('specificMetric', 'serviceLines', 'metrics', 'service_line_id'));
     }
 
     /**

@@ -15,7 +15,7 @@
         <legend><?= __('Add Specific Metric') ?></legend>
         <table>
                 <tr>
-                    <td><?= $this->Form->control('service_line_id', ['options' => $serviceLines]) ?></td>
+                    <td><?= $this->Form->control('service_line_id', ['options' => $serviceLines, 'default'=>$service_line_id]) ?></td>
                     <td><?= $this->Form->control('metric_id', ['options' => $metrics]) ?></td>
                 </tr>
                 <tr>
