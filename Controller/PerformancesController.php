@@ -106,7 +106,7 @@ class PerformancesController extends AppController
             $this->Flash->error(__('The performance could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller'=>'Providers', 'action'=>'view', $performance->provider_id]);
     }
 
         /**

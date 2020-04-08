@@ -104,6 +104,6 @@ class ContractsController extends AppController
             $this->Flash->error(__('The contract could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller'=>'Providers', 'action'=>'view', $contract->provider_id]);
     }
 }

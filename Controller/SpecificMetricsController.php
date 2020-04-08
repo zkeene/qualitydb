@@ -104,6 +104,6 @@ class SpecificMetricsController extends AppController
             $this->Flash->error(__('The specific metric could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller'=>'ServiceLines', 'action'=>'view', $SpecificMetrics->service_line_id]);
     }
 }
