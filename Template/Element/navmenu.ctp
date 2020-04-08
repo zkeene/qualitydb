@@ -18,6 +18,7 @@
 <li><a target="_blank" href="/scorecard/delete_performance.php">Delete Data</a></li>
 <li><a target="_blank" href="/scorecard/lock_period.php">Lock Period</a></li>
 <li><a target="_blank" href="/scorecard/provider_list.php">Active Provider List</a></li>
+<li><a target="_blank" href="/scorecard/duplicate_performance.php">Duplicate Performance Providers</a></li>
 <li><a target="_blank" href="/scorecard/metric_definitions.php">Metric Definitions</a></li>
 <li><a target="_blank" href="/scorecard/duplicate_specific.php">Duplicate Specific Metric</a></li>
 <li><a target="_blank" href="/scorecard/duplicate_year.php">Duplicate Year</a></li>
