@@ -23,7 +23,7 @@
         <?php if (!empty($serviceLine->specific_metrics)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th colspan='2' scope="col"><?= __('Metric') ?></th>
+                <th colspan='4' scope="col"><?= __('Metric') ?></th>
                 <th scope="col"><?= __('Edit') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
                 <th scope="col"><?= __('Threshold Direction') ?></th>
@@ -38,7 +38,7 @@
             </tr>
             <?php foreach ($serviceLine->specific_metrics as $specificMetrics): ?>
             <tr>
-                <td colspan='2'><?= h($specificMetrics->metric->metric) ?></td>
+                <td colspan='4'><?= h($specificMetrics->metric->metric) ?></td>
                 <td><?= $this->Html->link(__('Edit'), ['controller' => 'Metrics', 'action' => 'edit', $specificMetrics->metric->id]) ?></td>
                 <td><?= h($specificMetrics->year) ?></td>
                 <td><?= h($specificMetrics->threshold_direction)? 'Down':'Up' ?></td>
@@ -64,7 +64,7 @@
         <?php if (!empty($serviceLine->providers)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Provider Name') ?></th>
+                <th colspan="2" scope="col"><?= __('Provider Name') ?></th>
                 <th scope="col"><?= __('Provider Type') ?></th>
                 <th scope="col"><?= __('Epic SER') ?></th>
                 <th scope="col"><?= __('NPI') ?></th>
@@ -74,7 +74,7 @@
             </tr>
             <?php foreach ($serviceLine->providers as $providers): ?>
             <tr>
-                <td><?= $this->Html->link(__($providers->provider_name), ['controller' => 'Providers', 'action' => 'view', $providers->id]) ?></td>
+                <td colspan="2"><?= $this->Html->link(__($providers->provider_name), ['controller' => 'Providers', 'action' => 'view', $providers->id]) ?></td>
                 <td><?= h($providers->provider_type->provider_type) ?></td>
                 <td><?= h($providers->SER) ?></td>
                 <td><?= h($providers->NPI) ?></td>
