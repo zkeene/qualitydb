@@ -19,6 +19,7 @@
 <li><a target="_blank" href="/scorecard/lock_period.php">Lock Period</a></li>
 <li><a target="_blank" href="/scorecard/duplicate_specific.php">Duplicate Specific Metric</a></li>
 <li><a target="_blank" href="/scorecard/duplicate_year.php">Duplicate Year</a></li>
+<li><a target="_blank" href="/update.php">Update System from GitHub</a></li>
 <li class="heading"><?= __('Reports') ?></li>
 <li><a target="_blank" href="/scorecard/metric_definitions.php">Metric Definitions</a></li>
 <li><a target="_blank" href="/scorecard/provider_list.php">Active Provider List</a></li>
