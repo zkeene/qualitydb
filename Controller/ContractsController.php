@@ -106,4 +106,32 @@ class ContractsController extends AppController
 
         return $this->redirect(['controller'=>'Providers', 'action'=>'view', $contract->provider_id]);
     }
+
+    /**
+     * Find method
+     *
+     * @return \Cake\Http\Response|null Redirects on search, renders view otherwise.
+     */
+    public function find()
+    {
+        $contracts = null;
+        if ($this->request->is('post')) {
+            $contract_search = $this->request->getData();
+            $start_date = $contract_search['start_date']['year'].'-'.$contract_search['start_date']['month'].'-'.$contract_search['start_date']['day'];
+            $end_date = $contract_search['end_date']['year'].'-'.$contract_search['end_date']['month'].'-'.$contract_search['end_date']['day'];
+            $query = $this->Contracts->find('all',[
+                'conditions' => [
+                    $contract_search['search_type'].' >=' => $start_date,
+                    $contract_search['search_type'].' <=' => $end_date
+                ]
+            ]);
+            $this->paginate = [
+                'contain' => ['Providers']
+            ];
+            
+            $contracts = $this->paginate($query);
+        }
+        $search_types = ['effective_date' => 'Effective Date','effective_quality_date' => 'Effective Quality Date','inactive_date' => 'Inactive Date'];
+        $this->set(compact('search_types','contracts'));
+    }
 }

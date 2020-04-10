@@ -121,6 +121,7 @@ class ProvidersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
     public function search(){
         $this->request->allowMethod('ajax');
         $keyword = $this->request->query('keyword');

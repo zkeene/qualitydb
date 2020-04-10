@@ -13,6 +13,7 @@
 <li><?= $this->Html->link(__('Threshold Colors'), ['controller' => 'ThresholdColors', 'action' => 'index']) ?></li>
 <li><?= $this->Html->link(__('Locations'), ['controller' => 'Locations', 'action' => 'index']) ?></li>
 <li class="heading"><?= __('Utilities') ?></li>
+<li><?= $this->Html->link(__('Find Contract by Date'), ['controller' => 'Contracts', 'action' => 'find']) ?></li>
 <li><a target="_blank" href="/scorecard/upload.php">Upload Quarter Data</a></li>
 <li><a target="_blank" href="/scorecard/upload_period.php">Upload Period Data</a></li>
 <li><a target="_blank" href="/scorecard/delete_performance.php">Delete Data</a></li>
