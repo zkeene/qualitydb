@@ -52,7 +52,7 @@ class ContractsController extends AppController
             if ($this->Contracts->save($contract)) {
                 $this->Flash->success(__('The contract has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Providers', 'action'=>'view', $contract->provider_id]);;
             }
             $this->Flash->error(__('The contract could not be saved. Please, try again.'));
         }
@@ -78,7 +78,7 @@ class ContractsController extends AppController
             if ($this->Contracts->save($contract)) {
                 $this->Flash->success(__('The contract has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Providers', 'action'=>'view', $contract->provider_id]);
             }
             $this->Flash->error(__('The contract could not be saved. Please, try again.'));
         }
