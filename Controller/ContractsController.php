@@ -114,7 +114,10 @@ class ContractsController extends AppController
      */
     public function find()
     {
-        $contracts = null;
+        //create an empty query to make sure page displays correctly, probably a better way to do this
+        $query = $this->Contracts->find('all',[
+            'conditions' => ['pay_cycle_id' => '0']
+        ]);
         if ($this->request->is('post')) {
             $contract_search = $this->request->getData();
             $start_date = $contract_search['start_date']['year'].'-'.$contract_search['start_date']['month'].'-'.$contract_search['start_date']['day'];
@@ -124,13 +127,12 @@ class ContractsController extends AppController
                     $contract_search['search_type'].' >=' => $start_date,
                     $contract_search['search_type'].' <=' => $end_date
                 ]
-            ]);
-            $this->paginate = [
-                'contain' => ['Providers']
-            ];
-            
-            $contracts = $this->paginate($query);
+            ]);   
         }
+        $this->paginate = [
+            'contain' => ['Providers']
+        ];
+        $contracts = $this->paginate($query);
         $search_types = ['effective_date' => 'Effective Date','effective_quality_date' => 'Effective Quality Date','inactive_date' => 'Inactive Date'];
         $this->set(compact('search_types','contracts'));
     }
