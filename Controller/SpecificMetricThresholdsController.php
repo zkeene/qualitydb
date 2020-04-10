@@ -44,7 +44,7 @@ class SpecificMetricThresholdsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($specific_metric_id=0)
+    public function add($specific_metric_id = null)
     {
         $specificMetricThreshold = $this->SpecificMetricThresholds->newEntity();
         if ($this->request->is('post')) {

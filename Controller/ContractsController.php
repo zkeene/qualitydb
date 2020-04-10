@@ -44,7 +44,7 @@ class ContractsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($provider_id = null)
     {
         $contract = $this->Contracts->newEntity();
         if ($this->request->is('post')) {
@@ -58,7 +58,7 @@ class ContractsController extends AppController
         }
         $providers = $this->Contracts->Providers->find('list');
         $payCycles = $this->Contracts->PayCycles->find('list', ['limit' => 200]);
-        $this->set(compact('contract', 'providers', 'payCycles'));
+        $this->set(compact('contract', 'providers', 'payCycles', 'provider_id'));
     }
 
     /**

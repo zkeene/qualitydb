@@ -39,7 +39,7 @@
     </table>
     <div class="related">
         <h4><?= __('Related Contracts') ?>
-        <div class="right"><?= $this->Html->link('New Contract',['controller'=>'Contracts', 'action'=>'add'],['class'=>'button'])?></div></h4>
+        <div class="right"><?= $this->Html->link('New Contract',['controller'=>'Contracts', 'action'=>'add',$provider->id],['class'=>'button'])?></div></h4>
         <?php if (!empty($provider->contracts)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

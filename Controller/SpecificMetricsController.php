@@ -44,7 +44,7 @@ class SpecificMetricsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($service_line_id=0)
+    public function add($service_line_id = null)
     {
         $specificMetric = $this->SpecificMetrics->newEntity();
         if ($this->request->is('post')) {

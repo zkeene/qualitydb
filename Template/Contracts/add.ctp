@@ -15,7 +15,7 @@
         <legend><?= __('Add Contract') ?></legend>
         <table>
         <tr>
-        <td colspan='3'><?= $this->Form->control('provider_id', ['options' => $providers]) ?></td>
+        <td colspan='3'><?= $this->Form->control('provider_id', ['options' => $providers, 'default' => $provider_id]) ?></td>
         </tr>
         <tr>
         <td><?= $this->Form->control('total_incentive_amount', ['label' => 'Total Incentive']) ?></td>
