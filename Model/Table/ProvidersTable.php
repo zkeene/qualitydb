@@ -116,7 +116,7 @@ class ProvidersTable extends Table
     {
         $order = $query->clause('order');
         if ($order === null || !count($order)) {
-            $query->order( [$this->alias() . '.provider_name' => 'ASC'] );
+            $query->order( [$this->getAlias() . '.provider_name' => 'ASC'] );
         }
     }
 }
