@@ -52,7 +52,7 @@ class SpecificMetricsController extends AppController
             if ($this->SpecificMetrics->save($specificMetric)) {
                 $this->Flash->success(__('The specific metric has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'ServiceLines', 'action'=>'view', $SpecificMetrics->service_line_id]);
             }
             $this->Flash->error(__('The specific metric could not be saved. Please, try again.'));
         }
@@ -78,7 +78,7 @@ class SpecificMetricsController extends AppController
             if ($this->SpecificMetrics->save($specificMetric)) {
                 $this->Flash->success(__('The specific metric has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'ServiceLines', 'action'=>'view', $SpecificMetrics->service_line_id]);
             }
             $this->Flash->error(__('The specific metric could not be saved. Please, try again.'));
         }
