@@ -48,7 +48,7 @@ class SpecificMetric extends Entity
         'specific_metric_thresholds' => true,
         'metric_order' => true,
         'weight' => true,
-        'precision' => true
+        'round_precision' => true
     ];
 
     protected function _getSpecificMetricName(){
