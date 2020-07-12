@@ -52,8 +52,12 @@ class SpecificMetric extends Entity
     ];
 
     protected function _getSpecificMetricName(){
-        return $this->_properties['service_line']['service_line'].' - '.
-        $this->_properties['metric']['metric'].' - '.
-        $this->_properties['year'];
+        if (key_exists('service_line',$this->_properties)) {
+            return $this->_properties['service_line']['service_line'].' - '.
+                $this->_properties['metric']['metric'].' - '.
+                $this->_properties['year'];
+        } else {
+            return null;
+        }
     }
 }
