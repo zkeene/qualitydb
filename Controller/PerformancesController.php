@@ -78,8 +78,7 @@ class PerformancesController extends AppController
             $performance = $this->Performances->patchEntity($performance, $this->request->getData());
             if ($this->Performances->save($performance)) {
                 $this->Flash->success(__('The performance has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Providers', 'action'=>'view', $performance->provider_id]);
             }
             $this->Flash->error(__('The performance could not be saved. Please, try again.'));
         }
