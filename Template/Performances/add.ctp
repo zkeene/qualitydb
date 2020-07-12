@@ -14,7 +14,7 @@
     <fieldset>
         <legend><?= __('Add Performance') ?></legend>
         <?php
-            echo $this->Form->control('provider_id', ['options' => $providers]);
+            echo $this->Form->control('provider_id', ['options' => $providers, 'default' => $provider_id]);
             echo $this->Form->control('location_id', ['options' => $locations]);
             echo $this->Form->control('metric_id', ['options' => $metrics]);
             echo $this->Form->control('numerator');

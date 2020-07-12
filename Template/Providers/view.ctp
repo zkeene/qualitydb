@@ -76,7 +76,8 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Performances') ?></h4>
+        <h4><?= __('Related Performances') ?>
+        <div class="right"><?= $this->Html->link('New Performance',['controller'=>'Performances', 'action'=>'add',$provider->id],['class'=>'button'])?></div></h4>
         <?php if (!empty($provider->performances)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>

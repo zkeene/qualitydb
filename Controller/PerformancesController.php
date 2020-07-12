@@ -44,7 +44,7 @@ class PerformancesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($provider_id = null)
     {
         $performance = $this->Performances->newEntity();
         if ($this->request->is('post')) {
@@ -59,7 +59,7 @@ class PerformancesController extends AppController
         $providers = $this->Performances->Providers->find('list');
         $locations = $this->Performances->Locations->find('list', ['limit' => 200]);
         $metrics = $this->Performances->Metrics->find('list', ['limit' => 200]);
-        $this->set(compact('performance', 'providers', 'locations', 'metrics'));
+        $this->set(compact('performance', 'providers', 'locations', 'metrics', 'provider_id'));
     }
 
     /**
