@@ -106,4 +106,28 @@ class SpecificMetricsController extends AppController
 
         return $this->redirect(['controller'=>'ServiceLines', 'action'=>'view', $SpecificMetrics->service_line_id]);
     }
+
+    public function duplicate()
+    {
+        if ($this->request->is('post')) {
+            $duplicate_request = $this->request->getData();
+            $original = $this->SpecificMetrics->get($duplicate_request['specific_metric'], ['contain'=>['SpecificMetricThresholds']])->toArray();
+            $duplicate = $this->SpecificMetrics->newEntity();
+            $duplicate = $this->SpecificMetrics->patchEntity($duplicate, $original);
+            $duplicate->service_line_id = $duplicate_request['service_line'];
+            foreach ($duplicate->specific_metric_thresholds as $threshold) {
+                unset($threshold->specific_metric_id);
+            }
+            if ($this->SpecificMetrics->save($duplicate)) {
+                $this->Flash->success(__('The specific metric has been duplicated.'));
+                return $this->redirect(['controller'=>'ServiceLines', 'action'=>'view', $duplicate_request['service_line']]);
+            } else {
+                $this->Flash->error(__('The specific metric could not be duplicated. Please, try again.'));
+            } 
+            
+        }
+        $specificMetrics = $this->SpecificMetrics->find('list');
+        $serviceLines = $this->SpecificMetrics->ServiceLines->find('list');
+        $this->set(compact('specificMetrics', 'serviceLines'));
+    }
 }

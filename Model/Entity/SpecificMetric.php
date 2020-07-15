@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
 
 /**
  * SpecificMetric Entity
@@ -48,14 +49,16 @@ class SpecificMetric extends Entity
         'specific_metric_thresholds' => true,
         'metric_order' => true,
         'weight' => true,
-        'round_precision' => true
+        'round_precision' => true,
     ];
 
     protected function _getSpecificMetricName(){
-        if (key_exists('service_line',$this->_properties)) {
-            return $this->_properties['service_line']['service_line'].' - '.
-                $this->_properties['metric']['metric'].' - '.
-                $this->_properties['year'];
+        if ($this->service_line_id) {
+            $servicelines = TableRegistry::getTableLocator()->get('ServiceLines');
+            $metrics = TableRegistry::getTableLocator()->get('Metrics');
+            return $servicelines->get($this->service_line_id)->service_line.' - '.
+            $metrics->get($this->metric_id)->metric.' - '.
+            $this->year;
         } else {
             return null;
         }

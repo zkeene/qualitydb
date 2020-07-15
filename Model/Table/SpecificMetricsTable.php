@@ -36,7 +36,7 @@ class SpecificMetricsTable extends Table
         parent::initialize($config);
 
         $this->setTable('specific_metrics');
-        $this->setDisplayField('id');
+        $this->setDisplayField('specific_metric_name');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('ServiceLines', [
