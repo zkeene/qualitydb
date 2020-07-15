@@ -15,10 +15,15 @@
         <legend><?= __('Delete Performances') ?></legend>
         <table>
         <tr>
-        <td><?= $this->Form->control('metric', ['type'=>'select', 'required'=>true, 'hiddenField'=>false,'options' => $search_types]) ?></td>
-        <td><?= $this->Form->control('year', ['type'=>'date', 'required'=>true, 'empty' => true]) ?></td>
-        <td><?= $this->Form->control('quarter', ['type'=>'date', 'required'=>true, 'empty' => true]) ?></td>
-        <td><?= $this->Form->control('confirm', ['type'=>'checkbox', 'required'=>true, 'empty' => true]) ?></td>
+        <td colspan='3'><?= $this->Form->control('metric', ['type'=>'select', 'required'=>true, 'options' => $metrics]) ?></td>
+        </tr>
+        <tr>
+        <td><?= $this->Form->control('year',['required'=>true]) ?></td>
+        <td><?= $this->Form->control('period_type', ['type'=>'select', 'required'=>true, 'options' => $period_types]) ?></td>
+        <td><?= $this->Form->control('quarter', ['type'=>'select', 'required'=>true, 'options' => $quarters, 'label'=>'Quarter/Period']) ?></td>
+        </tr>
+        <tr>
+        <td colspan='2'><?= $this->Form->control('confirm', ['type'=>'checkbox', 'required'=>true, 'empty' => true]) ?></td>
         <td><?= $this->Form->button(__('Delete')) ?></td>
         </tr>
         </table>

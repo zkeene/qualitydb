@@ -131,16 +131,30 @@ class PerformancesController extends AppController
         $this->set(compact('performance', 'providers', 'metrics', 'provider_id_types'));
     }
 
-    public function bulk_delete($id = null)
+    public function bulkDelete()
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $performance = $this->Performances->get($id);
-        if ($this->Performances->delete($performance)) {
-            $this->Flash->success(__('The performance has been deleted.'));
-        } else {
-            $this->Flash->error(__('The performance could not be deleted. Please, try again.'));
+        if ($this->request->is('post')) {
+            $delete_request = $this->request->getData();
+            $metric_id = $delete_request['metric'];
+            $year = $delete_request['year'];
+            $quarter = $delete_request['quarter'];
+            $period_type = $delete_request['period_type'];
+            if ($period_type == 1) {
+                $result = $this->Performances->deleteAll(['metric_id' => $metric_id, 'year'=>$year, 'quarter'=>$quarter, 'period_performance'=>0]);
+            } else {
+                $result = $this->Performances->deleteAll(['metric_id' => $metric_id, 'year'=>$year, 'quarter'=>$quarter, 'period_performance'=>1]);
+            }
+            if ($result) {
+                $this->Flash->success(__('The performances have been deleted.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The performances could not be deleted. Please, try again.'));
+            }
+            
         }
-
-        return $this->redirect(['controller'=>'Providers', 'action'=>'view', $performance->provider_id]);
+        $period_types = array(1=>'Quarter',2=>'Period');
+        $quarters = array(1=>1,2=>2,3=>3,4=>4);
+        $metrics = $this->Performances->Metrics->find('list');
+        $this->set(compact('metrics','quarters','period_types'));
     }    
 }
