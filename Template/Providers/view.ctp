@@ -85,6 +85,7 @@
                 <th scope="col" colspan=3><?= __('Metric') ?></th>
                 <th scope="col"><?= __('Year') ?></th>
                 <th scope="col"><?= __('Quarter') ?></th>
+                <th scope="col"><?= __('Period?') ?></th>
                 <th scope="col"><?= __('Performance') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -94,6 +95,7 @@
                 <td colspan=3><?= h($performances->metric->metric) ?></td>
                 <td><?= h($performances->year) ?></td>
                 <td><?= h($performances->quarter) ?></td>
+                <td><?= $performances->period_performance?'Yes':'No' ?></td>
                 <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Performances', 'action' => 'view', $performances->id]) ?>

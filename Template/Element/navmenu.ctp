@@ -16,7 +16,7 @@
 <li><?= $this->Html->link(__('Find Contract by Date'), ['controller' => 'Contracts', 'action' => 'find']) ?></li>
 <li><a target="_blank" href="/scorecard/upload.php">Upload Quarter Data</a></li>
 <li><a target="_blank" href="/scorecard/upload_period.php">Upload Period Data</a></li>
-<li><a target="_blank" href="/scorecard/delete_performance.php">Delete Data</a></li>
+<li><?= $this->Html->link(__('Delete Data'), ['controller' => 'Performances', 'action' => 'bulkDelete']) ?></li>
 <li><a target="_blank" href="/scorecard/lock_period.php">Lock Period</a></li>
 <li><a target="_blank" href="/scorecard/duplicate_specific.php">Duplicate Specific Metric</a></li>
 <li><a target="_blank" href="/scorecard/duplicate_year.php">Duplicate Year</a></li>

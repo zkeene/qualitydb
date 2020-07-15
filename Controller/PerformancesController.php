@@ -130,4 +130,17 @@ class PerformancesController extends AppController
         $provider_id_types = [1=>'SER',2=>'NPI'];
         $this->set(compact('performance', 'providers', 'metrics', 'provider_id_types'));
     }
+
+    public function bulk_delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $performance = $this->Performances->get($id);
+        if ($this->Performances->delete($performance)) {
+            $this->Flash->success(__('The performance has been deleted.'));
+        } else {
+            $this->Flash->error(__('The performance could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['controller'=>'Providers', 'action'=>'view', $performance->provider_id]);
+    }    
 }
