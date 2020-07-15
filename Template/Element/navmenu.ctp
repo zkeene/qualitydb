@@ -19,7 +19,7 @@
 <li><?= $this->Html->link(__('Delete Data'), ['controller' => 'Performances', 'action' => 'bulkDelete']) ?></li>
 <li><a target="_blank" href="/scorecard/lock_period.php">Lock Period</a></li>
 <li><?= $this->Html->link(__('Duplicate Specific Metric'), ['controller' => 'SpecificMetrics', 'action' => 'duplicate']) ?></li>
-<li><a target="_blank" href="/scorecard/duplicate_year.php">Duplicate Year</a></li>
+<li><?= $this->Html->link(__('Duplicate Year'), ['controller' => 'SpecificMetrics', 'action' => 'duplicateYear']) ?></li>
 <li><a target="_blank" href="/update.php">Update System from GitHub</a></li>
 <li class="heading"><?= __('Reports') ?></li>
 <li><a target="_blank" href="/scorecard/metric_definitions.php">Metric Definitions</a></li>

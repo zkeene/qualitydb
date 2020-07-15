@@ -124,10 +124,33 @@ class SpecificMetricsController extends AppController
             } else {
                 $this->Flash->error(__('The specific metric could not be duplicated. Please, try again.'));
             } 
-            
         }
         $specificMetrics = $this->SpecificMetrics->find('list');
         $serviceLines = $this->SpecificMetrics->ServiceLines->find('list');
         $this->set(compact('specificMetrics', 'serviceLines'));
+    }
+
+    public function duplicateYear()
+    {
+        if ($this->request->is('post')) {
+            $duplicate_request = $this->request->getData();
+            $original = $this->SpecificMetrics->find()->
+                where(['year'=>$duplicate_request['source_year']])->
+                contain(['SpecificMetricThresholds'])->
+                enableHydration(false)->toArray();
+            $duplicate = $this->SpecificMetrics->newEntities($original);
+            foreach ($duplicate as $specmet) {
+                $specmet->year = $duplicate_request['target_year'];
+                foreach ($specmet->specific_metric_thresholds as $threshold) {
+                    unset($threshold->specific_metric_id);
+                }
+            }
+            if ($this->SpecificMetrics->saveMany($duplicate)) {
+                $this->Flash->success(__('The year has been duplicated.'));
+                return $this->redirect(['controller'=>'ServiceLines', 'action'=>'index']);
+            } else {
+                $this->Flash->error(__('The year could not be duplicated. Please, try again.'));
+            }
+        }
     }
 }
