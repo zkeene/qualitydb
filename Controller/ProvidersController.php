@@ -46,8 +46,7 @@ class ProvidersController extends AppController
                     'sort' => ['Performances.year' => 'DESC','Performances.quarter'=>'DESC', 'Metrics.metric'=>'ASC']
                 ],
                 'Contracts.PayCycles', 
-                'Performances.Metrics', 
-                'Performances.Locations'
+                'Performances.Metrics'
             ]
         ]);
 
