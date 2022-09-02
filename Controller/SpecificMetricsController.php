@@ -57,7 +57,7 @@ class SpecificMetricsController extends AppController
             $this->Flash->error(__('The specific metric could not be saved. Please, try again.'));
         }
         $serviceLines = $this->SpecificMetrics->ServiceLines->find('list', ['limit' => 200]);
-        $metrics = $this->SpecificMetrics->Metrics->find('list', ['limit' => 200]);
+        $metrics = $this->SpecificMetrics->Metrics->find('list', ['limit' => 200])->order(['metric'=>'ASC']);
         $this->set(compact('specificMetric', 'serviceLines', 'metrics', 'service_line_id'));
     }
 
