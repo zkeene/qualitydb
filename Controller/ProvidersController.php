@@ -50,7 +50,16 @@ class ProvidersController extends AppController
             ]
         ]);
 
-        $this->set('provider', $provider);
+        $performancesQuery = $this->Providers->Performances->find('all',['contain'=>['Metrics']])
+            ->innerJoinWith('Providers', function($query) use ($provider) {
+                return $query->where([
+                    'Providers.id' => $provider->id
+                ]);
+            })->group('Performances.id')->order(['year'=>'DESC', 'quarter'=>'DESC', 'Metrics.metric'=>'ASC']);
+        
+        $performances = $this->paginate($performancesQuery,['limit'=>'10']);
+
+        $this->set(compact('provider','performances'));
     }
 
     /**

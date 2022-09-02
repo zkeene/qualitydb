@@ -78,7 +78,7 @@
     <div class="related">
         <h4><?= __('Related Performances') ?>
         <div class="right"><?= $this->Html->link('New Performance',['controller'=>'Performances', 'action'=>'add',$provider->id],['class'=>'button'])?></div></h4>
-        <?php if (!empty($provider->performances)): ?>
+        <?php if (!empty($performances)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col" colspan=3><?= __('Metric') ?></th>
@@ -88,21 +88,31 @@
                 <th scope="col"><?= __('Performance') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($provider->performances as $performances): ?>
+            <?php foreach ($performances as $performance): ?>
             <tr>
-                <td colspan=3><?= h($performances->metric->metric) ?></td>
-                <td><?= h($performances->year) ?></td>
-                <td><?= h($performances->quarter) ?></td>
-                <td><?= $performances->period_performance?'Yes':'No' ?></td>
-                <td><?= h($performances->numerator).'/'.h($performances->denominator) ?></td>
+                <td colspan=3><?= h($performance->metric->metric) ?></td>
+                <td><?= h($performance->year) ?></td>
+                <td><?= h($performance->quarter) ?></td>
+                <td><?= $performance->period_performance?'Yes':'No' ?></td>
+                <td><?= h($performance->numerator).'/'.h($performance->denominator) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Performances', 'action' => 'view', $performances->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Performances', 'action' => 'edit', $performances->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Performances', 'action' => 'delete', $performances->id], ['confirm' => __('Are you sure you want to delete # {0}?', $performances->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Performances', 'action' => 'view', $performance->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Performances', 'action' => 'edit', $performance->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Performances', 'action' => 'delete', $performance->id], ['confirm' => __('Are you sure you want to delete # {0}?', $performance->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </table>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first')) ?>
+                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                <?= $this->Paginator->numbers() ?>
+                <?= $this->Paginator->next(__('next') . ' >') ?>
+                <?= $this->Paginator->last(__('last') . ' >>') ?>
+            </ul>
+            <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        </div>
         <?php endif; ?>
     </div>
 </div>
